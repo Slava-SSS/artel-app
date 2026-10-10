@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[user]
+	email = roor.tw@gmail.com
+	name = Claude
+[remote "origin"]
+	url = https://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@github.com/Slava-SSS/artel-app.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main

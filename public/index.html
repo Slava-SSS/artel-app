@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АРТЕЛЬ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ: ЗАГОЛОВОК + ВЫБОР ПРОЕКТА + КНОПКИ -->
+        <div class="header">
+            <h1>АРТЕЛЬ</h1>
+            <div class="project-selector">
+                <label>Проект:</label>
+                <select id="project-select" onchange="selectProjectByDropdown()" class="project-dropdown">
+                    <option value="">Выберите проект...</option>
+                </select>
+                <button class="btn-refresh" onclick="refreshProjects()" title="Пересканировать проекты">⟳ Обновить</button>
+                <button class="btn-refresh" onclick="location.reload()" title="Перезагрузить страницу">🔄 Перезагрузить</button>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКИ: ФАЙЛЫ / ЗАКАЗЫ -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('files')">📁 Файлы</button>
+            <button class="tab-btn" onclick="switchTab('orders')">📋 Заказы Telegram</button>
+        </div>
+
+        <!-- ОСНОВНАЯ СЕТКА: ПРОЕКТЫ СЛЕВА + СОДЕРЖИМОЕ СПРАВА -->
+        <div class="main-grid" id="files-tab">
+            <!-- ЛЕВАЯ КОЛОНКА: СПИСОК ПРОЕКТОВ -->
+            <div class="projects-panel">
+                <div class="projects-header">
+                    <h3>Проекты</h3>
+                    <button class="btn-small" onclick="addProject()">+ Добавить</button>
+                </div>
+                <div id="projects-list" class="projects-list">
+                    <div class="loading">Загрузка...</div>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: КАТЕГОРИИ И ФАЙЛЫ -->
+            <div class="content-panel">
+                <!-- КАТЕГОРИИ С ФАЙЛАМИ -->
+                <div class="categories-section">
+                    <div class="categories-header">
+                        <h3>КАТЕГОРИИ</h3>
+                        <button class="btn-small" onclick="addCategory()">+ Добавить</button>
+                    </div>
+                    <div id="categories-list" class="categories-list">
+                        <div class="loading">Выберите проект</div>
+                    </div>
+                </div>
+
+                <!-- ФАЙЛЫ -->
+                <div class="files-section">
+                    <div class="files-header">
+                        <h3>ФАЙЛЫ ПРОЕКТА <span id="file-count"></span></h3>
+                        <div class="files-controls">
+                            <input type="text" id="search-input" placeholder="🔍 Поиск..." class="search-input">
+                            <select id="extension-filter" class="filter-select">
+                                <option value="">Все расширения</option>
+                            </select>
+                            <button class="btn-small" onclick="toggleView()">⊞ Галерея</button>
+                            <div id="size-slider-container" class="size-slider-container" style="display: none;">
+                                <label>Размер:</label>
+                                <input type="range" id="size-slider" class="size-slider" min="60" max="300" value="120" oninput="changeIconSize(this.value)">
+                            </div>
+                            <button class="btn-small" id="assign-btn" onclick="assignCategoryToSelected()" disabled style="display: none;">→ Категория</button>
+                        </div>
+                    </div>
+                    <div id="files-list" class="files-list">
+                        <div class="loading">Выберите проект</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА ЗАКАЗОВ ИЗ TELEGRAM -->
+        <div class="orders-panel" id="orders-tab" style="display: none;">
+            <div class="orders-header">
+                <h3>📋 Заказы из Telegram</h3>
+                <button class="btn-small" onclick="syncTelegramOrders()" id="sync-btn" title="Синхронизировать с Telegram">🔄 Синхронизировать</button>
+                <span id="orders-count" class="orders-count">0</span>
+            </div>
+            <div id="orders-list" class="orders-list">
+                <div class="loading">Нет заказов</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛИ -->
+    <div id="modal-file-category" class="modal">
+        <div class="modal-content">
+            <h3>Назначить категорию</h3>
+            <p id="modal-file-name"></p>
+            <div id="modal-categories"></div>
+            <div class="modal-add-category">
+                <input type="text" id="new-category-inline" placeholder="Новая категория..." class="text-input">
+                <button class="btn-small" onclick="addCategoryInline()">+ Добавить</button>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="closeModal()">Отмена</button>
+                <button class="btn-primary" onclick="confirmCategory()" id="confirm-category-btn" disabled>Назначить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-new-category" class="modal">
+        <div class="modal-content">
+            <h3>Новая категория</h3>
+            <input type="text" id="category-input" placeholder="Имя категории..." class="text-input">
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="closeModal()">Отмена</button>
+                <button class="btn-primary" onclick="createNewCategory()">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-new-project" class="modal">
+        <div class="modal-content">
+            <h3>Добавить проект</h3>
+            <input type="text" id="project-name-input" placeholder="Имя проекта..." class="text-input">
+            <input type="text" id="project-path-input" placeholder="Путь к папке проекта..." class="text-input">
+            <div class="modal-buttons">
+                <button class="btn-secondary" onclick="closeModal()">Отмена</button>
+                <button class="btn-primary" onclick="createNewProject()">Добавить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛІ ДЛЯ VIEWERS -->
+    <div id="modal-pdf-viewer" class="modal">
+        <div class="modal-content" style="width: 90%; height: 90%; max-width: 100%; max-height: 100%; display: flex; flex-direction: column;">
+            <h3 id="pdf-title">PDF Viewer</h3>
+            <embed id="pdf-embed" type="application/pdf" style="flex: 1; width: 100%; border: none;">
+            <div class="modal-buttons" style="margin-top: auto;">
+                <button class="btn-secondary" onclick="closeModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-3d-viewer" class="modal">
+        <div class="modal-content" style="width: 90%; height: 90%; max-width: 100%; max-height: 100%; display: flex; flex-direction: column;">
+            <h3 id="3d-title">3D Viewer</h3>
+            <canvas id="three-canvas" style="flex: 1; width: 100%; background: #050809;"></canvas>
+            <div class="modal-buttons" style="margin-top: auto;">
+                <button class="btn-secondary" onclick="closeModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMAGE VIEWER - Responsive size -->
+    <div id="modal-image-viewer" class="modal" style="background: rgba(0,0,0,0.6); padding: 20px;">
+        <div id="image-viewer-box" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 id="image-viewer-name" style="margin: 0; font-size: 14px; color: var(--text-primary);"></h3>
+                <button class="btn-secondary" onclick="closeModal()" style="padding: 4px 8px;">✕ Закрыть</button>
+            </div>
+            <img id="image-viewer-img" src="" alt="Preview" style="max-width: 70vw; max-height: 70vh; object-fit: contain; border-radius: 4px;">
+        </div>
+    </div>
+
+    <!-- CONSOLE LOGS PANEL -->
+    <div id="logs-panel" class="logs-panel">
+        <div class="logs-header">
+            <span>🔧 Логи</span>
+            <button class="btn-small" onclick="clearLogs()">Очистить</button>
+            <button class="btn-small" onclick="toggleLogsPanel()">✕ Закрыть</button>
+        </div>
+        <div id="logs-content" class="logs-content"></div>
+    </div>
+
+    <button id="logs-toggle-btn" class="logs-toggle-btn" onclick="toggleLogsPanel()" title="Открыть логи">🔧</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
