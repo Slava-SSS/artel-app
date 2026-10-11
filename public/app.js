@@ -53,12 +53,16 @@ if (window.api && window.api.onLog) {
 // ORDERS FROM TELEGRAM
 function switchTab(tabName) {
   // Скрываем все вкладки
+  document.getElementById('dashboard-tab').style.display = 'none';
   document.getElementById('files-tab').style.display = 'none';
   document.getElementById('orders-tab').style.display = 'none';
   document.getElementById('database-tab').style.display = 'none';
 
   // Показываем выбранную вкладку
-  if (tabName === 'files') {
+  if (tabName === 'dashboard') {
+    document.getElementById('dashboard-tab').style.display = 'block';
+    loadDashboard(); // Загружаем dashboard
+  } else if (tabName === 'files') {
     document.getElementById('files-tab').style.display = 'grid';
   } else if (tabName === 'orders') {
     document.getElementById('orders-tab').style.display = 'flex';
@@ -1255,5 +1259,38 @@ function closeThumbnailIndexingModal() {
   }
 }
 
+// DASHBOARD - загруженить главную страницу
+function loadDashboard() {
+  const dashboardContent = document.getElementById('dashboard-content');
+
+  // Встраиваем dashboard.html контент
+  dashboardContent.innerHTML = `
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <div class="header-top">
+          <h1>📊 АРТЕЛЬ Dashboard</h1>
+          <div class="header-info">
+            <span class="version">v0.7.1</span>
+            <span class="sync-status">🟢 Синхронизировано</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-content" style="padding: 20px;">
+        <div style="text-align: center; padding: 40px;">
+          <h2>📂 Проекты</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+            ${appState.projects.map(p => `
+              <div style="padding: 20px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s;" onclick="selectProject('${p.id}')">
+                <strong>${p.name}</strong>
+                <br><small style="color: var(--text-secondary);">${appState.files.filter(f => f.projectId === p.id).length} файлов</small>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
 
 document.addEventListener('DOMContentLoaded', init);
