@@ -55,12 +55,16 @@ function switchTab(tabName) {
   // Скрываем все вкладки
   document.getElementById('files-tab').style.display = 'none';
   document.getElementById('orders-tab').style.display = 'none';
+  document.getElementById('database-tab').style.display = 'none';
 
   // Показываем выбранную вкладку
   if (tabName === 'files') {
     document.getElementById('files-tab').style.display = 'grid';
   } else if (tabName === 'orders') {
     document.getElementById('orders-tab').style.display = 'flex';
+  } else if (tabName === 'database') {
+    document.getElementById('database-tab').style.display = 'flex';
+    loadDatabaseEditor(); // Загружаем данные БД
   }
 
   // Обновляем кнопки
@@ -215,11 +219,38 @@ async function selectProject(projectName) {
   appState.filesExtFilter = '';
   renderProjectDropdown();
   renderProjects();
+
+  // 🔄 ВСЕГДА ПЕРЕЗАГРУЖАЕМ КАТЕГОРИИ ИЗ БД (важно для новых категорий!)
+  const data = await window.api.getData();
+  appState.categories = data.categories || [];
+
   const files = await window.api.getProjectFiles(projectName);
   appState.allFiles = files || [];
+  dbState.allFiles = [...appState.allFiles]; // Синхронизируем с БД редактором
   renderCategories();
   renderFiles();
   updateExtensionFilter();
+}
+
+// ✅ РЕШЕНИЕ ПРОБЛЕМЫ: Перезагрузить БД с диска
+async function refreshDatabase() {
+  try {
+    const data = await window.api.getData();
+    appState.projects = data.projects || [];
+    appState.categories = data.categories || [];
+    appState.allFiles = [];
+    dbState.allFiles = [];
+
+    // Перезагружаем текущий проект
+    if (appState.currentProject) {
+      await selectProject(appState.currentProject);
+    }
+
+    alert('✅ БД обновлена! Данные перезагружены с диска.');
+  } catch (err) {
+    alert('❌ Ошибка при обновлении БД: ' + err.message);
+    console.error(err);
+  }
 }
 
 function renderCategories() {
@@ -241,6 +272,9 @@ function renderCategories() {
     const fileCount = categoryFiles.length;
     const categoryIcon = categoryObj.icon || '🏷️';
 
+    // ✅ ПРАВИЛО: "Рабочий файл" ВСЕГДА видна, остальные ТОЛЬКО если есть файлы
+    if (categoryName !== 'Рабочий файл' && fileCount === 0) return;
+
     html += `<div class="category-section">
       <div class="category-title">${categoryIcon} ${categoryName} [${fileCount}]</div>`;
 
@@ -259,7 +293,7 @@ function renderCategories() {
           <td><input type="checkbox"></td>
           <td style="text-align: center;"><button class="btn-file" onclick="previewFileFromTable('${file.fullPath}', '${file.name}')" title="Просмотр">👁️</button></td>
           <td class="file-name" title="${file.name}">${file.name}</td>
-          <td><span class="file-ext">${file.ext}</span></td>
+          <td><span class="file-ext">${file.ext}</span>${file.isDuplicateOldVersion ? ' ❌' : ''}</td>
           <td>${file.sizeFormatted}</td>
           <td>${file.modified_at}</td>
           <td class="file-actions">
@@ -284,7 +318,7 @@ function renderFiles() {
     return;
   }
 
-  // ТОЛЬКО файлы БЕЗ категории!
+  // ✅ v0.8: ТОЛЬКО файлы БЕЗ категории (включая дубликаты с пометкой ❌)
   let filteredFiles = appState.allFiles.filter(f => !f.category);
 
   if (appState.filesExtFilter) {
@@ -332,9 +366,9 @@ function renderTable(list, filteredFiles) {
       <td><input type="checkbox" class="file-checkbox" data-file-id="${file.id}" ${appState.selectedProjectFiles.has(file.id) ? 'checked' : ''}></td>
       <td style="text-align: center;"><button class="btn-file btn-view" data-path="${file.fullPath}" data-name="${file.name}" title="Просмотр">👁️</button></td>
       <td class="file-name" title="${file.name}">${file.name}</td>
-      <td><span class="file-ext">${file.ext}</span></td>
+      <td><span class="file-ext">${file.ext}</span>${file.isDuplicateOldVersion ? ' ❌' : ''}</td>
       <td>${file.sizeFormatted}</td>
-      <td>${file.modified_at}</td>
+      <td>${file.modified_at || 'N/A'}</td>
       <td class="file-actions">
         <button class="btn-file btn-open" data-path="${file.fullPath}">📂</button>
         <button class="btn-file btn-rename" data-file-id="${file.id}" data-file-name="${file.name}">✎</button>
@@ -570,6 +604,15 @@ function assignCategoryToSelected() {
   if (appState.selectedProjectFiles.size === 0) return;
   const modal = document.getElementById('modal-file-category');
   modal.classList.add('active');
+
+  // ✅ v0.8: Показываем КОНКРЕТНЫЕ файлы которые выбраны
+  const fileNames = Array.from(appState.selectedProjectFiles).map(fileId => {
+    const file = appState.allFiles.find(f => f.id === fileId);
+    return file ? file.name : fileId;
+  }).join(', ');
+
+  document.getElementById('modal-file-name').innerHTML = `<strong>Файлы:</strong> ${fileNames}`;
+
   const categoryList = document.getElementById('modal-categories');
   categoryList.innerHTML = appState.categories.map(cat => {
     const catName = typeof cat === 'string' ? cat : cat.name;
@@ -957,6 +1000,259 @@ function loadOBJModel(filePath, scene) {
 
 function loadGLTFModel(filePath, scene) {
   alert('GLTF viewer требует доп. зависимостей - используйте STL или GLTF');
+}
+
+// ═══════════════════════════════════════════════
+// БД РЕДАКТОР ФУНКЦИИ
+// ═══════════════════════════════════════════════
+
+let dbState = {
+  allFiles: [],
+  selectedFileIndex: -1,
+  filteredFiles: [],
+  selectedFile: null
+};
+
+function loadDatabaseEditor() {
+  dbState.allFiles = [...appState.allFiles];
+  dbState.filteredFiles = [...dbState.allFiles];
+
+  // Заполняем фильтр категории
+  const categoryFilter = document.getElementById('db-filter-category');
+  categoryFilter.innerHTML = '<option value="">Все категории</option>';
+  appState.categories.forEach(cat => {
+    const option = document.createElement('option');
+    option.value = cat.name;
+    option.textContent = `${cat.icon} ${cat.name}`;
+    categoryFilter.appendChild(option);
+  });
+
+  // Заполняем фильтр типа файла
+  const types = new Set(dbState.allFiles.map(f => f.ext));
+  const typeFilter = document.getElementById('db-filter-type');
+  typeFilter.innerHTML = '<option value="">Все типы</option>';
+  Array.from(types).sort().forEach(ext => {
+    const option = document.createElement('option');
+    option.value = ext;
+    option.textContent = ext;
+    typeFilter.appendChild(option);
+  });
+
+  renderDatabaseTable();
+}
+
+function renderDatabaseTable() {
+  const tbody = document.getElementById('db-full-tbody');
+  tbody.innerHTML = '';
+
+  if (dbState.filteredFiles.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="13" class="loading">Файлов не найдено</td></tr>';
+    document.getElementById('db-file-count').textContent = '0 файлов';
+    return;
+  }
+
+  document.getElementById('db-file-count').textContent = `${dbState.filteredFiles.length} файлов`;
+
+  dbState.filteredFiles.forEach((file, idx) => {
+    const row = document.createElement('tr');
+    const historyText = (file.history || [])
+      .map(h => `[${h.action}] ${new Date(h.timestamp).toLocaleString()}`)
+      .join('; ');
+
+    // Определяем статус дубликата
+    let statusCell = '—';
+    let rowStyle = '';
+    if (file.isDuplicate && file.isDuplicateOldVersion) {
+      statusCell = '❌ СТАРАЯ';
+      rowStyle = ' style="opacity: 0.6; background: rgba(255, 0, 0, 0.1);"';
+    } else if (file.isDuplicate && !file.isDuplicateOldVersion) {
+      statusCell = '✓ СВЕЖАЯ';
+      rowStyle = ' style="background: rgba(0, 255, 0, 0.05);"';
+    }
+
+    // Простая иконка вместо превью
+    const iconCell = file.isDuplicate ? '📋' : (file.ext && ['JPG', 'PNG', 'GIF'].includes(file.ext) ? '🖼️' : '📄');
+
+    row.innerHTML = `
+      <td>${idx + 1}</td>
+      <td style="text-align: center; font-size: 18px;">${iconCell}</td>
+      <td>${statusCell}</td>
+      <td title="${file.id}">${file.id}</td>
+      <td title="${file.name}">${file.name}</td>
+      <td title="${file.fullPath}">${file.fullPath}</td>
+      <td>${file.ext}</td>
+      <td>${file.sizeFormatted || '0 Б'}</td>
+      <td>${file.modified_at ? new Date(file.modified_at).toLocaleString() : 'N/A'}</td>
+      <td>${file.category || '—'}</td>
+      <td title="${file.description || ''}">${file.description || '—'}</td>
+      <td>${file.tags ? file.tags.join(', ') : '—'}</td>
+      <td title="${historyText}">${historyText || '—'}</td>
+    `;
+    if (rowStyle) row.setAttribute('style', rowStyle.slice(7, -2)); // Убрать style="..."
+    tbody.appendChild(row);
+  });
+}
+
+function dbSearchFiles() {
+  const query = document.getElementById('db-search').value.toLowerCase();
+  dbApplyFilters();
+}
+
+function dbApplyFilters() {
+  const searchQuery = document.getElementById('db-search').value.toLowerCase();
+  const categoryFilter = document.getElementById('db-filter-category').value;
+  const typeFilter = document.getElementById('db-filter-type').value;
+  const sizeFilter = document.getElementById('db-filter-size').value;
+
+  dbState.filteredFiles = dbState.allFiles.filter(file => {
+    // Поиск по имени/ID/пути
+    const matchSearch = searchQuery === '' ||
+      file.name.toLowerCase().includes(searchQuery) ||
+      file.id.toLowerCase().includes(searchQuery) ||
+      file.fullPath.toLowerCase().includes(searchQuery);
+
+    // Фильтр по категории
+    const matchCategory = categoryFilter === '' || file.category === categoryFilter;
+
+    // Фильтр по типу файла
+    const matchType = typeFilter === '' || file.ext === typeFilter;
+
+    // Фильтр по размеру
+    let matchSize = true;
+    if (sizeFilter === 'small') {
+      matchSize = file.size < 1024 * 1024;
+    } else if (sizeFilter === 'medium') {
+      matchSize = file.size >= 1024 * 1024 && file.size < 10 * 1024 * 1024;
+    } else if (sizeFilter === 'large') {
+      matchSize = file.size >= 10 * 1024 * 1024;
+    }
+
+    return matchSearch && matchCategory && matchType && matchSize;
+  });
+
+  renderDatabaseTable();
+}
+
+function dbResetFilters() {
+  document.getElementById('db-search').value = '';
+  document.getElementById('db-filter-category').value = '';
+  document.getElementById('db-filter-type').value = '';
+  document.getElementById('db-filter-size').value = '';
+
+  dbState.filteredFiles = [...dbState.allFiles];
+  renderDatabaseTable();
+}
+
+// ✅ ПОЛНАЯ ПЕРЕЗАГРУЗКА ПРИЛОЖЕНИЯ (БД + страница)
+async function reloadAppProperly() {
+  try {
+    console.log('🔄 Перезагружаю БД...');
+    // Шаг 1: Перезагружаем БД с диска
+    const data = await window.api.getData();
+    appState.projects = data.projects || [];
+    appState.categories = data.categories || [];
+    appState.allFiles = [];
+    dbState.allFiles = [];
+
+    console.log('✅ БД обновлена. Перезагружаю проект...');
+    // Шаг 2: Перезагружаем текущий проект
+    if (appState.currentProject) {
+      await selectProject(appState.currentProject);
+    }
+
+    console.log('✨ Перезагружаю страницу...');
+    // Шаг 3: Перезагружаем страницу (очищаем кэши браузера)
+    setTimeout(() => {
+      location.reload();
+    }, 300);
+  } catch (err) {
+    console.error('❌ Ошибка при перезагрузке:', err);
+    location.reload(); // На крайний случай просто перезагружаем
+  }
+}
+
+// ============================================
+// ИНДЕКСАЦИЯ ПРЕВЬЮ ВСЕХ ФАЙЛОВ (v0.8)
+// ============================================
+
+async function startIndexingAllThumbnails() {
+  console.log('🎬 СТАРТ: Индексация превью всех файлов');
+
+  // Показываем модаль с прогрессом
+  showThumbnailIndexingModal();
+
+  try {
+    console.log('📡 Вызываю API: indexAllThumbnails()');
+    const result = await window.api.indexAllThumbnails();
+    console.log('📊 Результат API:', result);
+
+    if (result && result.success) {
+      console.log(`✅ Индексация завершена: ${result.thumbnails} превью`);
+      alert(`✅ Индексация завершена!\n${result.thumbnails} превью + ${result.totalFiles - result.thumbnails} иконок\nВремя: ${result.duration}s`);
+
+      // Перезагружаем БД
+      setTimeout(() => {
+        reloadAppProperly();
+      }, 500);
+    } else {
+      console.error('❌ Ошибка индексации:', result);
+      alert(`❌ Ошибка: ${result?.error || 'Неизвестная ошибка'}`);
+    }
+  } catch (err) {
+    console.error('❌ Критическая ошибка:', err);
+    alert(`❌ Критическая ошибка: ${err.message}`);
+  } finally {
+    closeThumbnailIndexingModal();
+  }
+}
+
+function showThumbnailIndexingModal() {
+  let modal = document.getElementById('modal-thumbnail-indexing');
+  if (!modal) {
+    // Создаем модаль если её нет
+    modal = document.createElement('div');
+    modal.id = 'modal-thumbnail-indexing';
+    modal.className = 'modal';
+    modal.innerHTML = `
+      <div class="modal-content" style="min-width: 400px; text-align: center;">
+        <h3>🎬 Индексация превью</h3>
+        <div id="thumbnail-progress-bar" style="margin: 20px 0; background: var(--bg-card); border-radius: 4px; height: 20px; overflow: hidden;">
+          <div id="thumbnail-progress-fill" style="height: 100%; background: var(--accent); width: 0%; transition: width 0.2s;"></div>
+        </div>
+        <p id="thumbnail-status" style="color: var(--text-secondary); font-size: 12px;">Подготовка...</p>
+        <p id="thumbnail-current" style="margin: 10px 0; font-size: 14px;">0 / 0</p>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // 📡 Регистрируем слушатель ОДИН РАЗ (при создании модали)
+    if (window.api && window.api.onThumbnailProgress) {
+      console.log('📡 Регистрирую слушатель onThumbnailProgress');
+      window.api.onThumbnailProgress((data) => {
+        console.log('📊 Прогресс:', data);
+        const fillBar = document.getElementById('thumbnail-progress-fill');
+        const currentText = document.getElementById('thumbnail-current');
+        const statusText = document.getElementById('thumbnail-status');
+
+        if (fillBar && currentText && statusText) {
+          const percent = (data.current / data.total) * 100;
+          fillBar.style.width = percent + '%';
+          currentText.textContent = `${data.current} / ${data.total}`;
+          statusText.textContent = data.fileName || 'Обработка...';
+        }
+      });
+    }
+  }
+
+  modal.style.display = 'flex';
+  console.log('✅ Модаль индексации показана');
+}
+
+function closeThumbnailIndexingModal() {
+  const modal = document.getElementById('modal-thumbnail-indexing');
+  if (modal) {
+    modal.style.display = 'none';
+  }
 }
 
 
