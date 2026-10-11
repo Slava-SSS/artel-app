@@ -1,101 +1,71 @@
-<!-- СТРАНИЦА "О ПРОЕКТЕ" - ПОЛНЫЙ ИНТЕРАКТИВНЫЙ РЕГЛАМЕНТ -->
+<!-- СТРАНИЦА "О ПРОЕКТЕ" - КРАСИВЫЙ ИНТЕРАКТИВНЫЙ РЕГЛАМЕНТ -->
 <style>
-* {
-  box-sizing: border-box;
-}
-
-.about-page {
+.about-wrapper {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 30px;
-  padding: 30px;
-  height: 100%;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  height: 100vh;
   width: 100%;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow: hidden;
 }
 
 /* БОКОВОЕ МЕНЮ */
 .about-sidebar {
-  position: relative;
-  height: calc(100vh - 60px);
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  padding: 25px 15px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 5px;
 }
 
-.sidebar-header {
-  font-size: 13px;
+.sidebar-title {
+  font-size: 12px;
   font-weight: 700;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
   border-bottom: 2px solid var(--accent);
 }
 
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
-.sidebar-menu a {
-  padding: 10px 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+.sidebar-link {
+  padding: 10px 12px;
   border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid transparent;
   color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s;
-  font-size: 13px;
-  border-left: 3px solid transparent;
+  font-size: 12px;
   font-weight: 500;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
 }
 
-.sidebar-menu a:hover {
-  background: var(--bg-secondary);
+.sidebar-link:hover {
+  background: var(--bg-primary);
   border-left-color: var(--accent);
-  transform: translateX(4px);
 }
 
-.sidebar-menu a.active {
+.sidebar-link.active {
   background: var(--accent);
   color: white;
   border-left-color: white;
 }
 
 /* ОСНОВНОЙ КОНТЕНТ */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.about-main {
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 60px);
-  padding-right: 15px;
-  scroll-behavior: smooth;
-}
-
-.about-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.about-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.about-content::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-
-.about-content::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  padding: 30px 40px;
 }
 
 /* ЗАГОЛОВОК */
@@ -103,11 +73,12 @@
   background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 30px;
+  padding: 25px;
+  margin-bottom: 30px;
 }
 
 .about-header h1 {
-  font-size: 32px;
+  font-size: 28px;
   margin: 0 0 8px 0;
   color: var(--text-primary);
 }
@@ -115,170 +86,146 @@
 .about-header .subtitle {
   font-size: 14px;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.about-version {
+.about-meta {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
-.version-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  background: var(--bg-secondary);
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
+.about-meta strong {
+  color: var(--accent);
 }
 
 /* СЕКЦИИ */
-.section-content {
+.section {
   display: none;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in;
 }
 
-.section-content.active {
+.section.active {
   display: block;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin: 0 0 15px 0;
   padding-bottom: 12px;
   border-bottom: 3px solid var(--accent);
+}
+
+/* ЭЛЕМЕНТЫ КОНТЕНТА */
+.content {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-/* ТЕКСТ */
-.markdown-content {
-  line-height: 1.8;
+.paragraph {
+  line-height: 1.7;
   font-size: 14px;
-}
-
-.markdown-content h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 25px 0 12px 0;
   color: var(--text-primary);
 }
 
-.markdown-content h4 {
-  font-size: 14px;
-  font-weight: 700;
-  margin: 15px 0 10px 0;
-  color: var(--accent);
-}
-
-.markdown-content p {
-  margin: 10px 0;
-  color: var(--text-primary);
-}
-
-.markdown-content strong {
+.paragraph strong {
   color: var(--accent);
   font-weight: 700;
 }
 
-.markdown-content code {
-  background: var(--bg-secondary);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: #FF6B6B;
+.subsection {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-/* СПИСКИ */
-.checkbox-list {
+.subsection.accent {
+  color: var(--accent);
+}
+
+.list {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
-.checkbox-item {
+.list-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   padding: 8px 12px;
   background: var(--bg-card);
   border-radius: 6px;
-  border-left: 3px solid transparent;
   font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
+  border-left: 3px solid transparent;
 }
 
-.checkbox-item:hover {
-  background: var(--bg-secondary);
-}
-
-.checkbox-item input[type="checkbox"] {
-  cursor: pointer;
-  accent-color: var(--accent);
-}
-
-.checkbox-item.ok {
+.list-item.ok {
   border-left-color: #4CAF50;
 }
 
-.checkbox-item.no {
+.list-item.no {
   border-left-color: #F44336;
 }
 
-/* ТАБЛИЦЫ */
-.markdown-table {
+.list-item.question {
+  border-left-color: var(--accent);
+}
+
+.list-icon {
+  min-width: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* ТАБЛИЦА */
+.table {
   width: 100%;
   border-collapse: collapse;
-  margin: 15px 0;
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
-  font-size: 13px;
+  margin: 15px 0;
+  font-size: 12px;
 }
 
-.markdown-table th {
+.table th {
   background: var(--accent);
   color: white;
-  padding: 12px;
+  padding: 10px 12px;
   text-align: left;
   font-weight: 700;
 }
 
-.markdown-table td {
-  padding: 12px;
+.table td {
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
 }
 
-.markdown-table tr:hover {
+.table tr:hover {
   background: var(--bg-card);
-}
-
-.markdown-table tr:last-child td {
-  border-bottom: none;
 }
 
 /* ВЫДЕЛЕНИЯ */
 .highlight {
-  padding: 12px 16px;
+  padding: 12px 14px;
   border-radius: 6px;
+  border-left: 4px solid;
   margin: 15px 0;
-  border-left: 3px solid;
   font-size: 13px;
   line-height: 1.6;
 }
@@ -308,100 +255,83 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 15px;
-  margin: 15px 0;
+  padding: 12px;
+  margin: 12px 0;
   overflow-x: auto;
   font-family: 'Courier New', monospace;
   font-size: 12px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #E8F5E9;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-/* КАРТОЧКИ */
+/* CARD */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px 0;
-  transition: all 0.2s;
-}
-
-.card:hover {
-  border-color: var(--accent);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 8px 0;
 }
 
 .card-title {
   font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  margin-bottom: 6px;
   color: var(--text-primary);
 }
 
 .card-text {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-/* BUTTONS */
-.about-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+/* SCROLLBAR */
+.about-main::-webkit-scrollbar {
+  width: 8px;
 }
 
-.btn-about {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.about-main::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.btn-about.primary {
-  background: var(--accent);
-  color: white;
+.about-main::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
 }
 
-.btn-about.primary:hover {
-  opacity: 0.9;
+.about-main::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
-.btn-about.secondary {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
+.about-sidebar::-webkit-scrollbar {
+  width: 6px;
 }
 
-.btn-about.secondary:hover {
-  background: var(--bg-secondary);
-}
-
-/* LOADING */
-.loading {
-  text-align: center;
-  padding: 40px;
-  color: var(--text-secondary);
+.about-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .about-page {
+  .about-wrapper {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
   .about-sidebar {
-    position: relative;
-    top: auto;
-    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 15px;
+    max-height: 120px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .sidebar-title {
+    display: none;
   }
 
   .sidebar-menu {
@@ -409,189 +339,425 @@
     flex-wrap: wrap;
   }
 
-  .about-content {
-    max-height: none;
+  .sidebar-link {
+    flex-shrink: 0;
   }
 }
 </style>
 
-<div class="about-page">
+<div class="about-wrapper">
   <!-- БОКОВОЕ МЕНЮ -->
   <aside class="about-sidebar">
-    <div class="sidebar-header">📖 Разделы</div>
+    <div class="sidebar-title">📖 Разделы</div>
     <nav class="sidebar-menu" id="sidebar-menu">
       <!-- Генерируется JavaScript -->
     </nav>
   </aside>
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <div class="about-content" id="about-content">
-    <div class="loading">⏳ Загрузка СТРУКТУРЫ-АРТЕЛЬ...</div>
-  </div>
+  <main class="about-main" id="about-main">
+    <!-- Генерируется JavaScript -->
+  </main>
 </div>
 
 <script>
-let structureData = null;
-
-// Загрузить СТРУКТУРУ-АРТЕЛЬ.md
-async function loadStructure() {
-  try {
-    const response = await fetch('../docs/СТРУКТУРА-АРТЕЛЬ.md');
-    if (!response.ok) throw new Error('Failed to load');
-
-    const markdown = await response.text();
-    structureData = markdown;
-
-    renderPage();
-  } catch (error) {
-    console.error('Error loading structure:', error);
-    document.getElementById('about-content').innerHTML =
-      '<div class="loading">❌ Ошибка при загрузке документации</div>';
-  }
-}
-
-// Парсить Markdown и выделить разделы
-function parseMarkdown(markdown) {
-  const sections = [];
-  let currentSection = null;
-  let currentContent = [];
-
-  const lines = markdown.split('\n');
-
-  for (const line of lines) {
-    if (line.match(/^## \d\. /)) {
-      if (currentSection) {
-        sections.push({
-          id: currentSection.id,
-          title: currentSection.title,
-          content: currentContent.join('\n')
-        });
-      }
-      const match = line.match(/^## \d\. (.+)/);
-      currentSection = {
-        id: match[1].toLowerCase().replace(/\s+/g, '-').substring(0, 20),
-        title: match[1]
-      };
-      currentContent = [];
-    } else if (currentSection) {
-      currentContent.push(line);
-    }
-  }
-
-  if (currentSection) {
-    sections.push({
-      id: currentSection.id,
-      title: currentSection.title,
-      content: currentContent.join('\n')
-    });
-  }
-
-  return sections;
-}
-
-// Конвертировать Markdown в HTML
-function markdownToHtml(md) {
-  let html = md
-    // Заголовки
-    .replace(/^### (.*?)$/gm, '<h3>$1</h3>')
-    .replace(/^#### (.*?)$/gm, '<h4>$1</h4>')
-
-    // Выделения
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-
-    // Ссылки
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" style="color: var(--accent);">$1</a>')
-
-    // Код в строке
-    .replace(/`(.*?)`/g, '<code>$1</code>')
-
-    // Блоки кода
-    .replace(/```(.*?)```/s, '<div class="code-block">$1</div>')
-
-    // Таблицы (простой парсинг)
-    .replace(/\| (.*?) \|/g, (match, content) => {
-      return '<tr><td>' + content.split('|').map(c => '<td>' + c.trim() + '</td>').join('') + '</tr>';
-    })
-
-    // Параграфы
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^/gm, (match, offset, str) => {
-      if (offset === 0 || str[offset - 1] === '\n') return '<p>';
-      return match;
-    });
-
-  return '<div class="markdown-content">' + html + '</div>';
-}
-
-// Отобразить страницу
-function renderPage() {
-  const sections = parseMarkdown(structureData);
-
-  const container = document.getElementById('about-content');
-  const sidebar = document.getElementById('sidebar-menu');
-
-  // Заголовок
-  let html = `
-    <div class="about-header">
-      <h1>🏗️ АРТЕЛЬ</h1>
-      <p class="subtitle">Полный регламент разработки</p>
-      <div class="about-version">
-        <div class="version-badge">📌 v0.7.1</div>
-        <div class="version-badge">✅ Активный документ</div>
+// Данные регламента
+const sections = [
+  {
+    id: 'intro',
+    title: '🏗️ Введение',
+    content: `
+      <div class="about-header">
+        <h1>АРТЕЛЬ v0.7.1</h1>
+        <p class="subtitle">Полный регламент разработки</p>
+        <div class="about-meta">
+          <span><strong>Версия:</strong> v0.7.1</span>
+          <span><strong>Статус:</strong> 🔴 СВЯТОЙ ДОКУМЕНТ</span>
+          <span><strong>Обновлено:</strong> 2026-10-12</span>
+        </div>
       </div>
-      <div class="about-actions">
-        <button class="btn-about primary" onclick="window.location.href='../index.html'">← К Dashboard</button>
-      </div>
-    </div>
-  `;
+    `
+  },
+  {
+    id: 'agreements',
+    title: '1️⃣ Наши договоренности',
+    content: `
+      <div class="content">
+        <div class="highlight info">
+          <strong>ДОГОВОРЕННОСТЬ #1:</strong> Каждый патч проходит через СТРУКТУРУ-АРТЕЛЬ
+        </div>
 
-  // Меню
-  sidebar.innerHTML = sections.map(s =>
-    `<a class="menu-item" onclick="showSection('${s.id}')" data-section="${s.id}">${s.title}</a>`
+        <div class="subsection accent">Как работает:</div>
+        <div class="list">
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Разработчик проверяет соответствие СТРУКТУРЕ</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Если НЕ соответствует → останавливается, обновляет СТРУКТУРУ</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Если соответствует → разрабатывает, следуя правилам</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Тестирует в реальном приложении</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Создает коммит и патч-описание</div>
+          </div>
+        </div>
+
+        <div class="subsection accent" style="margin-top: 20px;">ДОГОВОРЕННОСТЬ #2: Код vs Данные</div>
+        <table class="table">
+          <tr>
+            <th>Где хранится</th>
+            <th>Что хранится</th>
+          </tr>
+          <tr>
+            <td><strong>GitHub</strong></td>
+            <td>main.js, preload.js, public/, docs/, PATCHES.md</td>
+          </tr>
+          <tr>
+            <td><strong>Google Drive / F:</strong></td>
+            <td>Проекты/, photos/, backups/, config.json</td>
+          </tr>
+        </table>
+
+        <div class="highlight error">
+          <strong>⛔ НИКОГДА не смешивать код и данные!</strong>
+        </div>
+
+        <div class="subsection accent" style="margin-top: 20px;">ДОГОВОРЕННОСТЬ #3: Конструктор обратной связи</div>
+        <div class="paragraph">
+          Разработчик ↔ Claude общаются через АРТЕЛЬ используя:
+        </div>
+        <div class="list">
+          <div class="list-item question">
+            <div class="list-icon">💬</div>
+            <div>Эту страницу "О проекте" с чекбоксами и вопросами</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">📖</div>
+            <div>История.md (история всех версий)</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">📦</div>
+            <div>vX.X.md описания (как мы решали проблемы)</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'architecture',
+    title: '2️⃣ Архитектура приложения',
+    content: `
+      <div class="content">
+        <div class="subsection accent">Стек технологий:</div>
+        <table class="table">
+          <tr>
+            <th>Компонент</th>
+            <th>Технология</th>
+            <th>Статус</th>
+          </tr>
+          <tr>
+            <td><strong>Desktop</strong></td>
+            <td>Electron 13+</td>
+            <td>✅ Работает</td>
+          </tr>
+          <tr>
+            <td><strong>Frontend</strong></td>
+            <td>Vanilla JavaScript (SPA)</td>
+            <td>✅ Работает</td>
+          </tr>
+          <tr>
+            <td><strong>Backend</strong></td>
+            <td>Node.js в Electron main</td>
+            <td>✅ Работает</td>
+          </tr>
+          <tr>
+            <td><strong>Database</strong></td>
+            <td>JSON (artel.json)</td>
+            <td>✅ Работает</td>
+          </tr>
+          <tr>
+            <td><strong>Design</strong></td>
+            <td>CSS3 с переменными</td>
+            <td>✅ Работает</td>
+          </tr>
+        </table>
+
+        <div class="subsection accent">Структура папок:</div>
+        <div class="code-block">F:\Artel APP GitHub/
+├── main.js              (главный процесс)
+├── preload.js           (безопасный IPC)
+├── public/              (все UI файлы)
+│   ├── index.html
+│   ├── app.js
+│   ├── styles.css
+│   └── pages/
+├── data/
+│   ├── artel.json       (основная БД)
+│   └── backups/
+├── docs/                (документация)
+│   ├── СТРУКТУРА-АРТЕЛЬ.md
+│   ├── История.md
+│   └── versions/
+└── .gitignore</div>
+      </div>
+    `
+  },
+  {
+    id: 'rules',
+    title: '3️⃣ Технические правила',
+    content: `
+      <div class="content">
+        <div class="highlight success">
+          <strong>✅ ОБЯЗАТЕЛЬНО перед патчем:</strong>
+        </div>
+        <div class="list">
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Прочитать ВСЮ СТРУКТУРУ-АРТЕЛЬ</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Проверить что изменения не нарушают ЗАПРЕТЫ</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Нет конфликтов с существующей архитектурой</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Все асинхронные функции имеют try-catch</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Все входные данные валидируются</div>
+          </div>
+          <div class="list-item ok">
+            <div class="list-icon">✓</div>
+            <div>Портативные пути (ROOT_PATH, не hardcode)</div>
+          </div>
+        </div>
+
+        <div class="highlight error" style="margin-top: 20px;">
+          <strong>❌ КАТЕГОРИЧЕСКИ НЕЛЬЗЯ:</strong>
+        </div>
+        <div class="list">
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>Hardcode пути типа C:\Users\...</div>
+          </div>
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>require() в renderer процессе</div>
+          </div>
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>Синхронные файловые операции</div>
+          </div>
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>Хранить пароли в коде</div>
+          </div>
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>Смешивать данные с кодом в GitHub</div>
+          </div>
+          <div class="list-item no">
+            <div class="list-icon">✕</div>
+            <div>Доверять входным данным без валидации</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'history',
+    title: '4️⃣ История решений',
+    content: `
+      <div class="content">
+        <div class="subsection accent">Проблема #1: Dashboard зависал</div>
+        <div class="highlight error">
+          <strong>Было:</strong> Dashboard отображался ДО загрузки данных → loadDashboard() получал пустой appState
+        </div>
+        <div class="highlight success">
+          <strong>Решение:</strong> Скрыли Dashboard (display: none) → init() загружает данные → switchTab('dashboard') показывает
+        </div>
+        <div class="paragraph" style="color: #4CAF50; font-weight: 700; margin-top: 10px;">✅ РЕШЕНО</div>
+
+        <div class="subsection accent" style="margin-top: 20px;">Проблема #2: Неправильные имена полей</div>
+        <div class="highlight error">
+          <strong>Было:</strong> Использовал appState.files и p.id которых не существует
+        </div>
+        <div class="highlight success">
+          <strong>Решение:</strong> Исправил на правильные поля: (p.fileCount || 0) и p.name
+        </div>
+        <div class="paragraph" style="color: #4CAF50; font-weight: 700; margin-top: 10px;">✅ РЕШЕНО</div>
+
+        <div class="subsection accent" style="margin-top: 20px;">Проблема #3: Система документирования</div>
+        <div class="highlight info">
+          <strong>Добавили:</strong> СТРУКТУРА-АРТЕЛЬ.md, История.md, вкладка "О проекте", интерактивный редактор
+        </div>
+        <div class="paragraph" style="color: #4CAF50; font-weight: 700; margin-top: 10px;">✅ ВНЕДРЕНО</div>
+      </div>
+    `
+  },
+  {
+    id: 'tasks',
+    title: '5️⃣ Задачи на перспективу',
+    content: `
+      <div class="content">
+        <div class="subsection accent">📋 Фаза 1 (v0.7.2): Улучшение документирования</div>
+        <div class="list">
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Полная реализация интерактивного редактора</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Система чекбоксов с сохранением состояния</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Комментарии и вопросы в каждом разделе</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>История всех изменений СТРУКТУРЫ-АРТЕЛЬ</div>
+          </div>
+        </div>
+        <div class="paragraph" style="margin-top: 10px; color: var(--text-secondary);">
+          <strong>Дедлайн:</strong> 2026-10-15
+        </div>
+
+        <div class="subsection accent" style="margin-top: 20px;">📋 Фаза 2 (v0.8): Расширение функционала</div>
+        <div class="list">
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Полный интерфейс для управления проектами</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Редактирование категорий с визуальным редактором</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Поддержка плагинов и расширений</div>
+          </div>
+        </div>
+
+        <div class="subsection accent" style="margin-top: 20px;">📋 Фаза 3 (v0.9): Оптимизация</div>
+        <div class="list">
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Улучшение производительности с большими проектами</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Полнотекстовый поиск</div>
+          </div>
+          <div class="list-item question">
+            <div class="list-icon">→</div>
+            <div>Кастомизация интерфейса</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'questions',
+    title: '6️⃣ Вопросы для обсуждения',
+    content: `
+      <div class="content">
+        <div class="card">
+          <div class="card-title">❓ Нужна ли SQLite вместо JSON?</div>
+          <div class="card-text">
+            <strong>Статус:</strong> Открыто<br>
+            <strong>За:</strong> Быстрее при больших файлах<br>
+            <strong>Против:</strong> JSON портабельнее<br>
+            <strong>Решение:</strong> Пока оставляем JSON, v0.9 можем переделать
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">❓ Как синхронизировать между компьютерами?</div>
+          <div class="card-text">
+            <strong>Статус:</strong> Открыто (высокий приоритет)<br>
+            <strong>Варианты:</strong> Google Drive, AWS S3, P2P (Syncthing)<br>
+            <strong>Решение:</strong> Выбрать для v0.8
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">✅ Должна ли СТРУКТУРА быть редактируемой в приложении?</div>
+          <div class="card-text">
+            <strong>Ответ:</strong> ДА! Это главный "конструктор обратной связи"<br>
+            <strong>Статус:</strong> Решено ✅
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">❓ Как контролировать соответствие патчей СТРУКТУРЕ?</div>
+          <div class="card-text">
+            <strong>Статус:</strong> Открыто (высокий приоритет)<br>
+            <strong>Решение:</strong> Git hooks для автопроверки перед коммитом (v0.7.2)
+          </div>
+        </div>
+      </div>
+    `
+  }
+];
+
+// Инициализация
+function init() {
+  const sidebarMenu = document.getElementById('sidebar-menu');
+  const aboutMain = document.getElementById('about-main');
+
+  // Генерируем меню
+  sidebarMenu.innerHTML = sections.map(s =>
+    `<a class="sidebar-link" onclick="showSection('${s.id}')" data-section="${s.id}">${s.title}</a>`
   ).join('');
 
-  // Разделы
-  sections.forEach(section => {
-    html += `
-      <div id="${section.id}" class="section-content">
-        <h2 class="section-title">${section.title}</h2>
-        ${markdownToHtml(section.content)}
-      </div>
-    `;
-  });
+  // Генерируем контент
+  aboutMain.innerHTML = sections.map(s =>
+    `<div id="${s.id}" class="section">${s.content}</div>`
+  ).join('');
 
-  container.innerHTML = html;
-
-  // Первый раздел активен
-  if (sections.length > 0) {
-    showSection(sections[0].id);
-  }
+  // Показываем первый раздел
+  showSection('intro');
 }
 
-// Показать раздел
-function showSection(sectionId) {
-  document.querySelectorAll('.section-content').forEach(el => {
+function showSection(id) {
+  // Скрываем все
+  document.querySelectorAll('.section').forEach(el => {
     el.classList.remove('active');
   });
 
-  document.querySelectorAll('.menu-item').forEach(el => {
+  document.querySelectorAll('.sidebar-link').forEach(el => {
     el.classList.remove('active');
   });
 
-  const section = document.getElementById(sectionId);
-  const menuItem = document.querySelector(`[data-section="${sectionId}"]`);
+  // Показываем выбранный
+  const section = document.getElementById(id);
+  const link = document.querySelector(`[data-section="${id}"]`);
 
   if (section) {
     section.classList.add('active');
-    document.querySelector('.about-content').scrollTop = 0;
+    document.getElementById('about-main').scrollTop = 0;
   }
 
-  if (menuItem) {
-    menuItem.classList.add('active');
+  if (link) {
+    link.classList.add('active');
   }
 }
 
 // Загрузить при открытии
-window.addEventListener('load', loadStructure);
+window.addEventListener('DOMContentLoaded', init);
 </script>
