@@ -2,6 +2,45 @@
 
 ---
 
+## 🚀 БЫСТРЫЙ СТАРТ
+
+### Первый запуск:
+```bash
+# 1. Клонируй репозиторий (или git pull если уже клонирован)
+git clone https://github.com/Slava-SSS/artel-app
+cd artel-app
+
+# 2. Установи зависимости (нужно ONE раз)
+./install-dependencies.bat
+# или просто двойной клик на install-dependencies.bat
+
+# 3. Запусти приложение
+npm start
+# или
+electron .
+```
+
+### Структура папок:
+```
+D:\\_AERTEL-APP\\artel-app/          ← ЭТА ПАПКА (код приложения на GitHub)
+│
+├── main.js, preload.js              ← Electron + Node.js логика
+├── public/                          ← Web UI (HTML/CSS/JS)
+├── data/artel.json                  ← БД с метаданными файлов
+├── package.json                     ← Зависимости (three, sharp, etc.)
+├── PATCHES.md                       ← Документация архитектуры
+├── INSTALL_3D.md                    ← Инструкция 3D поддержки
+└── install-dependencies.bat         ← Скрипт установки
+```
+
+### На другом компьютере:
+1. `git clone https://github.com/Slava-SSS/artel-app`
+2. `./install-dependencies.bat`
+3. Выбрать папку проектов при первом запуске (Obsidian-style relative paths)
+4. БД начнет пустая - это нормально!
+
+---
+
 ## 🏗️ АРХИТЕКТУРА ДВУХ ХРАНИЛИЩ (КРИТИЧНО ПОНИМАТЬ!)
 
 **РАЗДЕЛЕНИЕ ПОНЯТИЙ:**
