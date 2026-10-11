@@ -1298,41 +1298,88 @@ function loadDashboard() {
   `;
 }
 
-// ABOUT PAGE - Load project documentation
+// ABOUT PAGE - Load documentation with beautiful formatting
 function loadAboutPage() {
-  const container = document.getElementById('about-content-container');
-  fetch('../docs/СТРУКТУРА-АРТЕЛЬ.md')
-    .then(r => r.text())
-    .then(markdown => {
-      const html = markdownToHtml(markdown);
-      container.innerHTML = html;
-    })
-    .catch(err => {
-      console.error('Load about page error:', err);
-      container.innerHTML = '<p>Error loading documentation</p>';
-    });
+  const sections = [
+    {
+      id: 'intro',
+      title: '🏗️ Введение',
+      html: '<div style="background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 25px;"><h1 style="font-size: 28px; margin: 0 0 8px 0;">АРТЕЛЬ v0.7.1</h1><p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 15px;">Полный регламент разработки</p><div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary);"><span><strong style="color: var(--accent);">Версия:</strong> v0.7.1</span><span><strong style="color: var(--accent);">Статус:</strong> 🔴 СВЯТОЙ ДОКУМЕНТ</span><span><strong style="color: var(--accent);">Обновлено:</strong> 2026-10-12</span></div></div>'
+    },
+    {
+      id: 'agreements',
+      title: '1️⃣ Наши договоренности',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="padding: 12px 14px; border-radius: 6px; border-left: 4px solid var(--accent); background: rgba(var(--accent-rgb), 0.1); margin: 15px 0; font-size: 13px; line-height: 1.6;"><strong>ДОГОВОРЕННОСТЬ #1:</strong> Каждый патч проходит через СТРУКТУРУ-АРТЕЛЬ</div><div style="font-size: 15px; font-weight: 700; color: var(--accent); margin: 20px 0 10px 0;">Как работает:</div><div style="display: flex; flex-direction: column; gap: 8px;"><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">✓</div><div>Разработчик проверяет соответствие СТРУКТУРЕ</div></div><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">✓</div><div>Если НЕ соответствует → останавливается, обновляет СТРУКТУРУ</div></div><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">✓</div><div>Если соответствует → разрабатывает, следуя правилам</div></div></div></div>'
+    },
+    {
+      id: 'architecture',
+      title: '2️⃣ Архитектура приложения',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="font-size: 15px; font-weight: 700; color: var(--accent);">Стек технологий:</div><table style="width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; font-size: 12px;"><tr><th style="background: var(--accent); color: white; padding: 10px 12px; text-align: left; font-weight: 700;">Компонент</th><th style="background: var(--accent); color: white; padding: 10px 12px; text-align: left; font-weight: 700;">Технология</th><th style="background: var(--accent); color: white; padding: 10px 12px; text-align: left; font-weight: 700;">Статус</th></tr><tr><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><strong>Desktop</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">Electron 13+</td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">✅ Работает</td></tr><tr><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><strong>Frontend</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">Vanilla JavaScript</td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">✅ Работает</td></tr><tr><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><strong>Backend</strong></td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">Node.js в Electron</td><td style="padding: 10px 12px; border-bottom: 1px solid var(--border);">✅ Работает</td></tr></table></div>'
+    },
+    {
+      id: 'rules',
+      title: '3️⃣ Технические правила',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="padding: 12px 14px; border-radius: 6px; border-left: 4px solid #4CAF50; background: rgba(76, 175, 80, 0.1);"><strong>✅ ОБЯЗАТЕЛЬНО перед патчем:</strong></div><div style="display: flex; flex-direction: column; gap: 8px;"><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">✓</div><div>Прочитать ВСЮ СТРУКТУРУ-АРТЕЛЬ</div></div><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid #4CAF50; font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">✓</div><div>Проверить что изменения не нарушают ЗАПРЕТЫ</div></div></div></div>'
+    },
+    {
+      id: 'history',
+      title: '4️⃣ История решений',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="font-size: 15px; font-weight: 700; color: var(--accent);">Проблема #1: Dashboard зависал</div><div style="padding: 12px 14px; border-radius: 6px; border-left: 4px solid #F44336; background: rgba(244, 67, 54, 0.1);"><strong>Было:</strong> Dashboard отображался ДО загрузки данных</div><div style="padding: 12px 14px; border-radius: 6px; border-left: 4px solid #4CAF50; background: rgba(76, 175, 80, 0.1);"><strong>Решение:</strong> Скрыли Dashboard → init() загружает → switchTab() показывает</div><div style="color: #4CAF50; font-weight: 700;">✅ РЕШЕНО</div></div>'
+    },
+    {
+      id: 'tasks',
+      title: '5️⃣ Задачи на перспективу',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="font-size: 15px; font-weight: 700; color: var(--accent);">📋 Фаза 1 (v0.7.2): Улучшение документирования</div><div style="display: flex; flex-direction: column; gap: 8px;"><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--accent); font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">→</div><div>Полная реализация интерактивного редактора</div></div><div style="display: flex; gap: 10px; padding: 8px 12px; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--accent); font-size: 13px;"><div style="min-width: 18px; font-weight: bold;">→</div><div>Система чекбоксов с сохранением состояния</div></div></div><div style="margin-top: 10px; color: var(--text-secondary); font-size: 13px;"><strong>Дедлайн:</strong> 2026-10-15</div></div>'
+    },
+    {
+      id: 'questions',
+      title: '6️⃣ Вопросы для обсуждения',
+      html: '<div style="display: flex; flex-direction: column; gap: 15px;"><div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 12px;"><div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">❓ Нужна ли SQLite вместо JSON?</div><div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;"><strong>Статус:</strong> Открыто<br><strong>За:</strong> Быстрее при больших файлах<br><strong>Решение:</strong> Пока JSON, v0.9 можем переделать</div></div><div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 12px;"><div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">✅ Должна ли СТРУКТУРА быть редактируемой?</div><div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;"><strong>Ответ:</strong> ДА! Это главный "конструктор обратной связи"</div></div></div>'
+    }
+  ];
+
+  const sidebar = document.getElementById('about-menu');
+  const content = document.getElementById('about-content');
+
+  // Генерируем меню
+  sidebar.innerHTML = sections.map(s =>
+    `<a onclick="showAboutSection('${s.id}')" data-section="${s.id}" style="padding: 10px 12px; border-radius: 6px; background: var(--bg-secondary); border: 1px solid transparent; color: var(--text-primary); text-decoration: none; cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.2s; border-left: 3px solid transparent;">${s.title}</a>`
+  ).join('');
+
+  // Генерируем контент
+  content.innerHTML = sections.map(s =>
+    `<div id="about-section-${s.id}" style="display: none;"><h2 style="font-size: 20px; font-weight: 700; margin: 0 0 15px 0; padding-bottom: 12px; border-bottom: 3px solid var(--accent);">${s.title}</h2>${s.html}</div>`
+  ).join('');
+
+  // Показываем первый
+  showAboutSection('intro');
 }
 
-function markdownToHtml(markdown) {
-  return markdown
-    .replace(/^# (.*?)$/gm, '<h1>$1</h1>')
-    .replace(/^## (.*?)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.*?)$/gm, '<h3>$1</h3>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
-    .replace(/\n\n/g, '<br><br>');
-}
+function showAboutSection(id) {
+  // Скрываем все
+  document.querySelectorAll('[id^="about-section-"]').forEach(el => {
+    el.style.display = 'none';
+  });
 
-function toggleEditMode() {
-  alert('Функция редактирования будет реализована');
-}
+  document.querySelectorAll('[data-section]').forEach(el => {
+    el.style.background = 'var(--bg-secondary)';
+    el.style.color = 'var(--text-primary)';
+  });
 
-function exportStructure() {
-  alert('Экспорт будет реализован');
-}
+  // Показываем выбранный
+  const section = document.getElementById('about-section-' + id);
+  const link = document.querySelector(`[data-section="${id}"]`);
 
-function showHistory() {
-  alert('История будет реализована');
+  if (section) {
+    section.style.display = 'block';
+    document.getElementById('about-content').scrollTop = 0;
+  }
+
+  if (link) {
+    link.style.background = 'var(--accent)';
+    link.style.color = 'white';
+    link.style.borderLeftColor = 'white';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);

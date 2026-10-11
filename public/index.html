@@ -113,9 +113,16 @@
         </div>
 
         <!-- ВКЛАДКА О ПРОЕКТЕ -->
-        <div id="about-tab" style="display: none;">
-            <div id="about-content-container">
-                <div class="loading">Загрузка документации...</div>
+        <div id="about-tab" style="display: none; overflow: hidden;">
+            <div style="display: grid; grid-template-columns: 260px 1fr; gap: 0; height: 100%; width: 100%;">
+                <!-- БОКОВОЕ МЕНЮ -->
+                <aside id="about-sidebar" style="background: var(--bg-card); border-right: 1px solid var(--border); padding: 25px 15px; overflow-y: auto; overflow-x: hidden;">
+                    <div style="font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);">📖 Разделы</div>
+                    <nav id="about-menu" style="display: flex; flex-direction: column; gap: 6px;"></nav>
+                </aside>
+
+                <!-- ОСНОВНОЙ КОНТЕНТ -->
+                <main id="about-content" style="overflow-y: auto; overflow-x: hidden; padding: 30px 40px;"></main>
             </div>
         </div>
     </div>
