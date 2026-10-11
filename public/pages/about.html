@@ -1,465 +1,784 @@
-<!-- СТРАНИЦА "О ПРОЕКТЕ" - ИНТЕРАКТИВНЫЙ РЕДАКТОР СТРУКТУРЫ-АРТЕЛЬ -->
-<div class="about-container">
-  <!-- ЗАГОЛОВОК -->
-  <div class="about-header">
-    <h1>📚 О ПРОЕКТЕ АРТЕЛЬ</h1>
-    <p class="subtitle">Версия v0.7.1 • Интерактивный регламент разработки</p>
-    <div class="about-actions">
-      <button class="btn-primary" onclick="toggleEditMode()" id="edit-btn">✏️ Редактировать</button>
-      <button class="btn-secondary" onclick="exportStructure()">⬇️ Скачать</button>
-      <button class="btn-secondary" onclick="showHistory()" title="История изменений">⏱️ История</button>
-    </div>
-  </div>
-
-  <!-- БОКОВОЕ МЕНЮ -->
-  <div class="about-sidebar">
-    <div class="sidebar-title">📖 НАВИГАЦИЯ</div>
-    <nav id="about-toc" class="toc-menu">
-      <a href="#section-1" onclick="scrollToSection('section-1')">1. Архитектура</a>
-      <a href="#section-2" onclick="scrollToSection('section-2')">2. Синхронизация</a>
-      <a href="#section-3" onclick="scrollToSection('section-3')">3. Структура файлов</a>
-      <a href="#section-4" onclick="scrollToSection('section-4')">4. Стандарты</a>
-      <a href="#section-5" onclick="scrollToSection('section-5')">5. Версионирование</a>
-      <a href="#section-6" onclick="scrollToSection('section-6')">6. Запреты</a>
-      <a href="#section-links" onclick="scrollToSection('section-links')">📦 История версий</a>
-    </nav>
-  </div>
-
-  <!-- ОСНОВНОЙ КОНТЕНТ -->
-  <div class="about-content" id="about-content">
-    <!-- Контент загружается из СТРУКТУРА-АРТЕЛЬ.md -->
-    <div class="loading">⏳ Загрузка документации...</div>
-  </div>
-
-  <!-- КОММЕНТАРИИ И ВОПРОСЫ -->
-  <div class="about-comments" id="comments-panel" style="display: none;">
-    <div class="comments-header">
-      <h3>💬 Вопросы и комментарии</h3>
-      <button class="btn-small" onclick="closeComments()">✕</button>
-    </div>
-    <div class="comments-list" id="comments-list"></div>
-    <div class="comment-input">
-      <input type="text" id="comment-text" placeholder="Ваш вопрос или комментарий..." class="text-input">
-      <button class="btn-small" onclick="addComment()">Отправить</button>
-    </div>
-  </div>
-
-  <!-- МОДАЛЬНОЕ ОКНО ИСТОРИИ -->
-  <div id="modal-history" class="modal" style="display: none;">
-    <div class="modal-content">
-      <h3>⏱️ История изменений СТРУКТУРЫ</h3>
-      <div id="history-list" class="history-list"></div>
-      <div class="modal-buttons">
-        <button class="btn-secondary" onclick="closeHistory()">Закрыть</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- МОДАЛЬНОЕ ОКНО РЕДАКТОРА -->
-  <div id="modal-editor" class="modal" style="display: none;">
-    <div class="modal-content" style="width: 90%; max-width: 1200px; height: 80vh;">
-      <h3>✏️ Редактирование СТРУКТУРЫ-АРТЕЛЬ</h3>
-
-      <div class="editor-tabs">
-        <button class="editor-tab-btn active" onclick="switchEditorTab('visual')">📝 Визуальный редактор</button>
-        <button class="editor-tab-btn" onclick="switchEditorTab('raw')">💻 Сырой текст (Markdown)</button>
-      </div>
-
-      <!-- ВИЗУАЛЬНЫЙ РЕДАКТОР -->
-      <div id="visual-editor" class="editor-tab-content" style="display: block;">
-        <div class="editor-sections">
-          <div class="editor-section">
-            <h4>Архитектура приложения</h4>
-            <div class="editable-section" contenteditable="true" id="section-arch">
-              Описание архитектуры...
-            </div>
-            <div class="section-checklist">
-              <label><input type="checkbox"> Разделение ответственности</label>
-              <label><input type="checkbox"> Безопасный IPC</label>
-              <label><input type="checkbox"> Портативные пути</label>
-            </div>
-          </div>
-
-          <div class="editor-section">
-            <h4>Синхронизация данных</h4>
-            <div class="editable-section" contenteditable="true" id="section-sync">
-              Описание синхронизации...
-            </div>
-          </div>
-
-          <div class="editor-section">
-            <h4>Стандарты разработки</h4>
-            <div class="editable-section" contenteditable="true" id="section-standards">
-              Описание стандартов...
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- СЫРОЙ ТЕКСТ РЕДАКТОР -->
-      <div id="raw-editor" class="editor-tab-content" style="display: none;">
-        <textarea id="raw-text-editor" class="raw-textarea" placeholder="Редактируйте Markdown здесь..."></textarea>
-      </div>
-
-      <!-- КНОПКИ СОХРАНЕНИЯ -->
-      <div class="editor-buttons">
-        <button class="btn-primary" onclick="saveStructure()">💾 Сохранить</button>
-        <button class="btn-secondary" onclick="closeEditor()">Отмена</button>
-        <div class="auto-save-indicator" id="auto-save-indicator" style="display: none;">
-          ✅ Автосохранено
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- СТРАНИЦА "О ПРОЕКТЕ" - КРАСИВЫЙ И ЧИТАЕМЫЙ ИНТЕРФЕЙС -->
 <style>
-.about-container {
+.about-page {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  padding: 30px;
   height: 100%;
   background: var(--bg-primary);
   color: var(--text-primary);
+  overflow-y: auto;
 }
 
-.about-header {
-  grid-column: 1 / -1;
-  padding: 20px;
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
-  border-radius: 8px;
-  border: 1px solid var(--border);
+/* БОКОВОЕ МЕНЮ */
+.about-sidebar {
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+}
+
+.sidebar-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-menu a {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-menu a:hover {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.sidebar-menu a.active {
+  background: var(--accent);
+  color: white;
+  border-left-color: white;
+  font-weight: 600;
+}
+
+/* ГЛАВНЫЙ КОНТЕНТ */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ЗАГОЛОВОК */
+.about-header {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 10px;
 }
 
 .about-header h1 {
+  font-size: 32px;
   margin: 0 0 10px 0;
-  font-size: 28px;
+  color: var(--text-primary);
 }
 
-.subtitle {
+.about-header .subtitle {
+  font-size: 15px;
   color: var(--text-secondary);
-  margin: 0 0 15px 0;
-  font-size: 14px;
+  margin-bottom: 20px;
 }
 
+.about-version {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.version-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.version-badge.version {
+  color: var(--accent);
+}
+
+.version-badge.date {
+  color: var(--text-secondary);
+}
+
+.version-badge.status {
+  color: #4CAF50;
+}
+
+/* КНОПКИ */
 .about-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.about-sidebar {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px;
-  height: fit-content;
-  position: sticky;
-  top: 20px;
-}
-
-.sidebar-title {
-  font-weight: bold;
-  margin-bottom: 15px;
+.btn-about {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   font-size: 14px;
-  color: var(--text-secondary);
-}
-
-.toc-menu {
+  font-weight: 600;
+  transition: all 0.2s;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
-.toc-menu a {
-  padding: 8px 12px;
-  border-radius: 4px;
-  color: var(--text-primary);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 13px;
-  border-left: 3px solid transparent;
+.btn-about.primary {
+  background: var(--accent);
+  color: white;
 }
 
-.toc-menu a:hover {
-  background: var(--bg-secondary);
-  border-left-color: var(--accent);
+.btn-about.primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
-.about-content {
+.btn-about.secondary {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 30px;
-  overflow-y: auto;
-  max-height: 70vh;
-}
-
-.about-content h2 {
-  color: var(--accent);
-  margin-top: 30px;
-  margin-bottom: 15px;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 10px;
-}
-
-.about-content h3 {
   color: var(--text-primary);
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
-.about-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 15px 0;
-  font-size: 13px;
-}
-
-.about-content table th,
-.about-content table td {
-  border: 1px solid var(--border);
-  padding: 10px;
-  text-align: left;
-}
-
-.about-content table th {
+.btn-about.secondary:hover {
   background: var(--bg-secondary);
+}
+
+/* СЕКЦИИ */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.section-title::before {
+  display: inline-block;
+  font-size: 28px;
+}
+
+/* ТЕКСТ И ПАРАГРАФЫ */
+.section-text {
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.section-text strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.section-text em {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* СПИСКИ */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  font-size: 14px;
+}
+
+.checklist-item.ok {
+  border-left-color: #4CAF50;
+}
+
+.checklist-item.no {
+  border-left-color: #F44336;
+}
+
+.checklist-item.ok .icon {
+  color: #4CAF50;
   font-weight: bold;
 }
 
-.about-content code {
-  background: var(--bg-secondary);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: #FF6B6B;
+.checklist-item.no .icon {
+  color: #F44336;
+  font-weight: bold;
 }
 
-.about-content pre {
-  background: var(--bg-secondary);
-  padding: 15px;
-  border-radius: 4px;
-  overflow-x: auto;
-  margin: 10px 0;
-  font-size: 12px;
+.checklist-item .icon {
+  min-width: 20px;
+  text-align: center;
+  font-size: 16px;
 }
 
-/* МОДАЛЬНЫЕ ОКНА */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* ТАБЛИЦЫ */
+.data-table {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  border-collapse: collapse;
+  margin: 15px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.modal-content {
+.data-table th {
+  background: var(--accent);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.data-table tr:hover {
+  background: var(--bg-card);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* КАРТОЧКИ */
+.card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 20px;
-  max-width: 600px;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.card-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* КОД И ПРИМЕРЫ */
+.code-block {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 15px;
+  margin: 15px 0;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #E8F5E9;
+}
+
+/* ВЫДЕЛЕНИЯ */
+.highlight {
+  background: rgba(255, 193, 7, 0.1);
+  border-left: 3px solid #FFC107;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.highlight.success {
+  border-left-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.highlight.error {
+  border-left-color: #F44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.highlight.info {
+  border-left-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* СЕТКА КАРТОЧЕК */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 15px 0;
+}
+
+/* СКРЫТОЕ СОДЕРЖИМОЕ */
+.section-content {
+  display: none;
+}
+
+.section-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* МОДАЛЬНЫЕ ОКНА */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  display: none;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.modal-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: flex-end;
-}
-
-/* РЕДАКТОР */
-.editor-tabs {
-  display: flex;
-  gap: 10px;
+.modal-header {
+  font-size: 20px;
+  font-weight: 700;
   margin-bottom: 20px;
-  border-bottom: 1px solid var(--border);
-}
-
-.editor-tab-btn {
-  padding: 10px 15px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.editor-tab-btn.active {
-  border-bottom-color: var(--accent);
-  color: var(--accent);
-}
-
-.editor-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-.editor-section {
-  padding: 15px;
-  background: var(--bg-secondary);
-  border-radius: 4px;
-}
-
-.editor-section h4 {
-  margin: 0 0 10px 0;
-}
-
-.editable-section {
-  background: var(--bg-primary);
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  min-height: 50px;
-  outline: none;
-  margin-bottom: 10px;
-}
-
-.editable-section:focus {
-  border-color: var(--accent);
-  background: var(--bg-card);
-}
-
-.section-checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.section-checklist label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.section-checklist input[type="checkbox"] {
-  cursor: pointer;
-}
-
-.raw-textarea {
-  width: 100%;
-  height: 60vh;
-  padding: 15px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  resize: none;
-  outline: none;
-}
-
-.raw-textarea:focus {
-  border-color: var(--accent);
-}
-
-.editor-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.auto-save-indicator {
-  font-size: 12px;
-  color: #4CAF50;
-}
-
-/* КОММЕНТАРИИ */
-.comments-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
 }
 
-.comments-list {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.comment-item {
-  padding: 10px;
-  background: var(--bg-secondary);
-  border-radius: 4px;
-  border-left: 3px solid var(--accent);
-}
-
-.comment-author {
-  font-weight: bold;
-  font-size: 12px;
-  color: var(--accent);
-}
-
-.comment-text {
-  margin: 5px 0 0 0;
-  font-size: 13px;
-}
-
-.comment-time {
-  font-size: 11px;
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
   color: var(--text-secondary);
-  margin-top: 5px;
 }
 
-.comment-input {
-  display: flex;
-  gap: 8px;
-}
-
-#comment-text {
-  flex: 1;
-}
-
-/* ИСТОРИЯ */
-.history-list {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.history-item {
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  margin-bottom: 10px;
-  background: var(--bg-secondary);
-}
-
-.history-item-date {
-  font-weight: bold;
-  color: var(--accent);
-  font-size: 12px;
-}
-
-.history-item-changes {
-  margin-top: 5px;
-  font-size: 13px;
+.modal-close:hover {
   color: var(--text-primary);
 }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .about-page {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-sidebar {
+    position: relative;
+    top: auto;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+  }
+
+  .sidebar-menu a {
+    white-space: nowrap;
+  }
+}
 </style>
+
+<div class="about-page">
+  <!-- БОКОВОЕ МЕНЮ -->
+  <aside class="about-sidebar">
+    <div class="sidebar-header">📖 Разделы</div>
+    <nav class="sidebar-menu">
+      <a class="menu-item" onclick="showSection('intro')" data-section="intro">📚 Введение</a>
+      <a class="menu-item" onclick="showSection('structure')" data-section="structure">🏗️ Структура</a>
+      <a class="menu-item" onclick="showSection('rules')" data-section="rules">⚙️ Правила</a>
+      <a class="menu-item" onclick="showSection('versions')" data-section="versions">📦 Версии</a>
+      <a class="menu-item" onclick="showSection('process')" data-section="process">🚀 Процесс</a>
+      <a class="menu-item" onclick="showSection('faq')" data-section="faq">❓ FAQ</a>
+    </nav>
+  </aside>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <div class="about-content">
+    <!-- ЗАГОЛОВОК -->
+    <div class="about-header">
+      <h1>🏗️ АРТЕЛЬ</h1>
+      <p class="subtitle">Файловый менеджер с интеграцией Telegram и Google Drive</p>
+
+      <div class="about-version">
+        <div class="version-badge version">📌 v0.7.1</div>
+        <div class="version-badge date">📅 2026-10-11</div>
+        <div class="version-badge status">✅ Активная разработка</div>
+      </div>
+
+      <div class="about-actions">
+        <button class="btn-about primary" onclick="editStructure()">✏️ Редактировать</button>
+        <button class="btn-about secondary" onclick="downloadDocs()">⬇️ Скачать</button>
+        <button class="btn-about secondary" onclick="showHistory()">📜 История</button>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 1: ВВЕДЕНИЕ -->
+    <div id="intro" class="section-content active">
+      <h2 class="section-title">📚 Введение в АРТЕЛЬ</h2>
+
+      <div class="section-text">
+        <p><strong>АРТЕЛЬ</strong> — это современное приложение для управления файлами проектов с красивым интерфейсом и умными функциями.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">💼 Управление файлами</div>
+          <div class="card-text">Организуйте файлы проектов по категориям, добавляйте метаданные и ищите нужное за секунды</div>
+        </div>
+        <div class="card">
+          <div class="card-title">🤖 Telegram интеграция</div>
+          <div class="card-text">Получайте заказы прямо из Telegram бота и управляйте ими в приложении</div>
+        </div>
+        <div class="card">
+          <div class="card-title">☁️ Google Drive синхронизация</div>
+          <div class="card-text">Автоматическая резервная копия ваших проектов в облако</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 2: СТРУКТУРА -->
+    <div id="structure" class="section-content">
+      <h2 class="section-title">🏗️ Как устроено приложение</h2>
+
+      <div class="highlight info">
+        📍 <strong>АРТЕЛЬ</strong> = Electron приложение (Node.js + Vanilla JavaScript + CSS3)
+      </div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">Три слоя приложения:</h3>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">🎨 Frontend (UI)</div>
+          <div class="card-text">
+            Красивый интерфейс на чистом JavaScript и CSS3.<br/>
+            <strong>Файлы:</strong> index.html, app.js, styles.css
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">⚙️ Backend (Логика)</div>
+          <div class="card-text">
+            Node.js работает в главном процессе Electron.<br/>
+            <strong>Файл:</strong> main.js
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">💾 База данных</div>
+          <div class="card-text">
+            JSON файл с информацией о проектах и файлах.<br/>
+            <strong>Файл:</strong> data/artel.json
+          </div>
+        </div>
+      </div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">Синхронизация данных:</h3>
+
+      <div class="code-block">
+GitHub (код) ↔ Google Drive (данные)
+   ↓                      ↓
+main.js                Проекты/
+app.js                 photos/
+styles.css             backups/
+      </div>
+
+      <div class="highlight success">
+        ✅ <strong>Правило:</strong> GitHub хранит код, Google Drive хранит данные пользователя
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 3: ПРАВИЛА РАЗРАБОТКИ -->
+    <div id="rules" class="section-content">
+      <h2 class="section-title">⚙️ Правила разработки</h2>
+
+      <h3 style="color: #4CAF50; margin-top: 20px; display: flex; align-items: center; gap: 10px;">
+        ✅ Это ОБЯЗАТЕЛЬНО делать:
+      </h3>
+
+      <div class="checklist">
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Разделение кода и данных (GitHub ↔ Google Drive)</div>
+        </div>
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Безопасный IPC контекст (nodeIntegration: false)</div>
+        </div>
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Асинхронные операции с try-catch</div>
+        </div>
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Проверка входных данных (валидация)</div>
+        </div>
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Логирование важных операций</div>
+        </div>
+        <div class="checklist-item ok">
+          <div class="icon">✓</div>
+          <div>Портативные относительные пути</div>
+        </div>
+      </div>
+
+      <h3 style="color: #F44336; margin-top: 30px; display: flex; align-items: center; gap: 10px;">
+        ❌ Это НЕЛЬЗЯ делать:
+      </h3>
+
+      <div class="checklist">
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>Hardcode абсолютные пути (C:\folder\...)</div>
+        </div>
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>require() в renderer процессе (frontend)</div>
+        </div>
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>Синхронные операции чтения файлов</div>
+        </div>
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>Хранить пароли в коде</div>
+        </div>
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>Смешивать данные проектов с кодом</div>
+        </div>
+        <div class="checklist-item no">
+          <div class="icon">✕</div>
+          <div>Доверять входным данным без проверки</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ 4: ВЕРСИИ -->
+    <div id="versions" class="section-content">
+      <h2 class="section-title">📦 История версий</h2>
+
+      <div class="data-table">
+        <thead>
+          <tr>
+            <th>Версия</th>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Основные изменения</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>v0.7.1</strong></td>
+            <td>2026-10-11</td>
+            <td>✅ Активная</td>
+            <td>Dashboard + СТРУКТУРА-АРТЕЛЬ + система документирования</td>
+          </tr>
+          <tr>
+            <td><strong>v0.7</strong></td>
+            <td>2026-10-10</td>
+            <td>✅ Архивирована</td>
+            <td>Полная архитектура приложения</td>
+          </tr>
+          <tr>
+            <td><strong>v0.6</strong></td>
+            <td>2026-10-09</td>
+            <td>📦 В разработке</td>
+            <td>Базовая структура компонентов</td>
+          </tr>
+        </tbody>
+      </div>
+
+      <h3 style="color: var(--accent); margin-top: 25px;">Как читать версии:</h3>
+      <p style="line-height: 1.8; margin-top: 10px;">
+        Каждая версия имеет файл <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 3px;">vX.X.md</code> в папке <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 3px;">docs/versions/</code>.
+        Там описано что изменилось в этой версии и как это соответствует регламенту.
+      </p>
+    </div>
+
+    <!-- РАЗДЕЛ 5: ПРОЦЕСС РАЗРАБОТКИ -->
+    <div id="process" class="section-content">
+      <h2 class="section-title">🚀 Как разрабатывать новый патч</h2>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">1️⃣ Планирование</h3>
+      <div class="highlight">Прочитайте <strong>СТРУКТУРА-АРТЕЛЬ.md</strong> — это главный регламент проекта</div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">2️⃣ Проверка</h3>
+      <div class="highlight">Проверьте что ваши изменения соответствуют СТРУКТУРЕ и не нарушают ЗАПРЕТЫ</div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">3️⃣ Разработка</h3>
+      <div class="highlight">Разрабатывайте, следуя всем правилам и стандартам из СТРУКТУРЫ-АРТЕЛЬ</div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">4️⃣ Тестирование</h3>
+      <div class="highlight">Протестируйте в реальном приложении, проверьте функции и ошибки</div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">5️⃣ Коммит</h3>
+      <div class="code-block">git commit -m "v0.X.X: Краткое описание
+
+Подробное описание изменений
+- Пункт 1
+- Пункт 2"</div>
+
+      <h3 style="color: var(--accent); margin-top: 20px;">6️⃣ Документирование</h3>
+      <div class="highlight">Создайте файл <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 3px;">docs/versions/vX.X.md</code> с описанием патча</div>
+
+      <h3 style="color: #4CAF50; margin-top: 20px;">✅ Готово!</h3>
+    </div>
+
+    <!-- РАЗДЕЛ 6: FAQ -->
+    <div id="faq" class="section-content">
+      <h2 class="section-title">❓ Часто задаваемые вопросы</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="card">
+          <div class="card-title">Q: Как мне начать разработку нового патча?</div>
+          <div class="card-text">
+            A: Откройте <strong>СТРУКТУРА-АРТЕЛЬ.md</strong> и прочитайте его полностью. Это главный документ проекта. Проверьте что ваши идеи не противоречат регламенту.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Q: Что делать если мой патч противоречит СТРУКТУРЕ?</div>
+          <div class="card-text">
+            A: ОСТАНОВИТЕСЬ! Первым делом обновите СТРУКТУРУ-АРТЕЛЬ.md, обсудите изменения, потом разрабатывайте патч.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Q: Как редактировать СТРУКТУРУ-АРТЕЛЬ?</div>
+          <div class="card-text">
+            A: Нажмите кнопку "✏️ Редактировать" на этой странице. Откроется редактор Markdown. После сохранения файл обновится.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Q: Кто может менять СТРУКТУРУ-АРТЕЛЬ.md?</div>
+          <div class="card-text">
+            A: Это совместное решение между вами и Claude. Обсудите перед изменениями, докумен­тируйте почему нужна правка.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Q: Где хранятся все файлы документации?</div>
+          <div class="card-text">
+            A: В папке <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 3px;">docs/</code>:<br/>
+            <strong>СТРУКТУРА-АРТЕЛЬ.md</strong> — главный регламент<br/>
+            <strong>История.md</strong> — навигация по версиям<br/>
+            <strong>versions/</strong> — описание каждого патча (vX.X.md)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Функции управления страницей
+function showSection(sectionId) {
+  // Скрываем все разделы
+  document.querySelectorAll('.section-content').forEach(el => {
+    el.classList.remove('active');
+  });
+
+  // Показываем выбранный раздел
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.classList.add('active');
+  }
+
+  // Обновляем активную кнопку меню
+  document.querySelectorAll('.menu-item').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelector(`[data-section="${sectionId}"]`)?.classList.add('active');
+
+  // Скролл наверх
+  document.querySelector('.about-content').scrollTop = 0;
+}
+
+function editStructure() {
+  alert('✏️ Функция редактирования будет доступна в следующей версии\n\nВы можете редактировать СТРУКТУРУ-АРТЕЛЬ.md прямо из файла на GitHub');
+}
+
+function downloadDocs() {
+  alert('⬇️ Функция скачивания документов будет доступна в следующей версии');
+}
+
+function showHistory() {
+  alert('📜 История версий доступна в файле docs/История.md');
+}
+
+// Показываем первый раздел по умолчанию
+window.addEventListener('load', () => {
+  showSection('intro');
+});
+</script>
