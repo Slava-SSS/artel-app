@@ -1,0 +1,465 @@
+<!-- СТРАНИЦА "О ПРОЕКТЕ" - ИНТЕРАКТИВНЫЙ РЕДАКТОР СТРУКТУРЫ-АРТЕЛЬ -->
+<div class="about-container">
+  <!-- ЗАГОЛОВОК -->
+  <div class="about-header">
+    <h1>📚 О ПРОЕКТЕ АРТЕЛЬ</h1>
+    <p class="subtitle">Версия v0.7.1 • Интерактивный регламент разработки</p>
+    <div class="about-actions">
+      <button class="btn-primary" onclick="toggleEditMode()" id="edit-btn">✏️ Редактировать</button>
+      <button class="btn-secondary" onclick="exportStructure()">⬇️ Скачать</button>
+      <button class="btn-secondary" onclick="showHistory()" title="История изменений">⏱️ История</button>
+    </div>
+  </div>
+
+  <!-- БОКОВОЕ МЕНЮ -->
+  <div class="about-sidebar">
+    <div class="sidebar-title">📖 НАВИГАЦИЯ</div>
+    <nav id="about-toc" class="toc-menu">
+      <a href="#section-1" onclick="scrollToSection('section-1')">1. Архитектура</a>
+      <a href="#section-2" onclick="scrollToSection('section-2')">2. Синхронизация</a>
+      <a href="#section-3" onclick="scrollToSection('section-3')">3. Структура файлов</a>
+      <a href="#section-4" onclick="scrollToSection('section-4')">4. Стандарты</a>
+      <a href="#section-5" onclick="scrollToSection('section-5')">5. Версионирование</a>
+      <a href="#section-6" onclick="scrollToSection('section-6')">6. Запреты</a>
+      <a href="#section-links" onclick="scrollToSection('section-links')">📦 История версий</a>
+    </nav>
+  </div>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <div class="about-content" id="about-content">
+    <!-- Контент загружается из СТРУКТУРА-АРТЕЛЬ.md -->
+    <div class="loading">⏳ Загрузка документации...</div>
+  </div>
+
+  <!-- КОММЕНТАРИИ И ВОПРОСЫ -->
+  <div class="about-comments" id="comments-panel" style="display: none;">
+    <div class="comments-header">
+      <h3>💬 Вопросы и комментарии</h3>
+      <button class="btn-small" onclick="closeComments()">✕</button>
+    </div>
+    <div class="comments-list" id="comments-list"></div>
+    <div class="comment-input">
+      <input type="text" id="comment-text" placeholder="Ваш вопрос или комментарий..." class="text-input">
+      <button class="btn-small" onclick="addComment()">Отправить</button>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО ИСТОРИИ -->
+  <div id="modal-history" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>⏱️ История изменений СТРУКТУРЫ</h3>
+      <div id="history-list" class="history-list"></div>
+      <div class="modal-buttons">
+        <button class="btn-secondary" onclick="closeHistory()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО РЕДАКТОРА -->
+  <div id="modal-editor" class="modal" style="display: none;">
+    <div class="modal-content" style="width: 90%; max-width: 1200px; height: 80vh;">
+      <h3>✏️ Редактирование СТРУКТУРЫ-АРТЕЛЬ</h3>
+
+      <div class="editor-tabs">
+        <button class="editor-tab-btn active" onclick="switchEditorTab('visual')">📝 Визуальный редактор</button>
+        <button class="editor-tab-btn" onclick="switchEditorTab('raw')">💻 Сырой текст (Markdown)</button>
+      </div>
+
+      <!-- ВИЗУАЛЬНЫЙ РЕДАКТОР -->
+      <div id="visual-editor" class="editor-tab-content" style="display: block;">
+        <div class="editor-sections">
+          <div class="editor-section">
+            <h4>Архитектура приложения</h4>
+            <div class="editable-section" contenteditable="true" id="section-arch">
+              Описание архитектуры...
+            </div>
+            <div class="section-checklist">
+              <label><input type="checkbox"> Разделение ответственности</label>
+              <label><input type="checkbox"> Безопасный IPC</label>
+              <label><input type="checkbox"> Портативные пути</label>
+            </div>
+          </div>
+
+          <div class="editor-section">
+            <h4>Синхронизация данных</h4>
+            <div class="editable-section" contenteditable="true" id="section-sync">
+              Описание синхронизации...
+            </div>
+          </div>
+
+          <div class="editor-section">
+            <h4>Стандарты разработки</h4>
+            <div class="editable-section" contenteditable="true" id="section-standards">
+              Описание стандартов...
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- СЫРОЙ ТЕКСТ РЕДАКТОР -->
+      <div id="raw-editor" class="editor-tab-content" style="display: none;">
+        <textarea id="raw-text-editor" class="raw-textarea" placeholder="Редактируйте Markdown здесь..."></textarea>
+      </div>
+
+      <!-- КНОПКИ СОХРАНЕНИЯ -->
+      <div class="editor-buttons">
+        <button class="btn-primary" onclick="saveStructure()">💾 Сохранить</button>
+        <button class="btn-secondary" onclick="closeEditor()">Отмена</button>
+        <div class="auto-save-indicator" id="auto-save-indicator" style="display: none;">
+          ✅ Автосохранено
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.about-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.about-header {
+  grid-column: 1 / -1;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.about-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin: 0 0 15px 0;
+  font-size: 14px;
+}
+
+.about-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.about-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 15px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.toc-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toc-menu a {
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+}
+
+.toc-menu a:hover {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent);
+}
+
+.about-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.about-content h2 {
+  color: var(--accent);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.about-content h3 {
+  color: var(--text-primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+.about-content table th,
+.about-content table td {
+  border: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+}
+
+.about-content table th {
+  background: var(--bg-secondary);
+  font-weight: bold;
+}
+
+.about-content code {
+  background: var(--bg-secondary);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #FF6B6B;
+}
+
+.about-content pre {
+  background: var(--bg-secondary);
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+/* МОДАЛЬНЫЕ ОКНА */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+/* РЕДАКТОР */
+.editor-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.editor-tab-btn {
+  padding: 10px 15px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.editor-tab-btn.active {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+.editor-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.editor-section {
+  padding: 15px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.editor-section h4 {
+  margin: 0 0 10px 0;
+}
+
+.editable-section {
+  background: var(--bg-primary);
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-height: 50px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.editable-section:focus {
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.section-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.section-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.section-checklist input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.raw-textarea {
+  width: 100%;
+  height: 60vh;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  resize: none;
+  outline: none;
+}
+
+.raw-textarea:focus {
+  border-color: var(--accent);
+}
+
+.editor-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.auto-save-indicator {
+  font-size: 12px;
+  color: #4CAF50;
+}
+
+/* КОММЕНТАРИИ */
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comments-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-item {
+  padding: 10px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent);
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.comment-text {
+  margin: 5px 0 0 0;
+  font-size: 13px;
+}
+
+.comment-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+.comment-input {
+  display: flex;
+  gap: 8px;
+}
+
+#comment-text {
+  flex: 1;
+}
+
+/* ИСТОРИЯ */
+.history-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: var(--bg-secondary);
+}
+
+.history-item-date {
+  font-weight: bold;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.history-item-changes {
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+</style>

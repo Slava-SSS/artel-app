@@ -21,12 +21,13 @@
             </div>
         </div>
 
-        <!-- ВКЛАДКИ: DASHBOARD / ФАЙЛЫ / ЗАКАЗЫ / БД -->
+        <!-- ВКЛАДКИ: DASHBOARD / ФАЙЛЫ / ЗАКАЗЫ / БД / О ПРОЕКТЕ -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
             <button class="tab-btn" onclick="switchTab('files')">📁 Файлы</button>
             <button class="tab-btn" onclick="switchTab('orders')">📋 Заказы Telegram</button>
             <button class="tab-btn" onclick="switchTab('database')">💾 База Данных</button>
+            <button class="tab-btn" onclick="switchTab('about')">📚 О проекте</button>
         </div>
 
         <!-- DASHBOARD (главная страница) -->
@@ -108,6 +109,13 @@
             </div>
             <div id="database-content" class="database-content">
                 <div class="loading">Загрузка...</div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА О ПРОЕКТЕ -->
+        <div id="about-tab" style="display: none;">
+            <div id="about-content-container">
+                <div class="loading">Загрузка документации...</div>
             </div>
         </div>
     </div>

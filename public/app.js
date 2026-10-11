@@ -57,6 +57,7 @@ function switchTab(tabName) {
   document.getElementById('files-tab').style.display = 'none';
   document.getElementById('orders-tab').style.display = 'none';
   document.getElementById('database-tab').style.display = 'none';
+  document.getElementById('about-tab').style.display = 'none';
 
   // Показываем выбранную вкладку
   if (tabName === 'dashboard') {
@@ -69,6 +70,9 @@ function switchTab(tabName) {
   } else if (tabName === 'database') {
     document.getElementById('database-tab').style.display = 'flex';
     loadDatabaseEditor(); // Загружаем данные БД
+  } else if (tabName === 'about') {
+    document.getElementById('about-tab').style.display = 'block';
+    loadAboutPage(); // Загружаем страницу о проекте
   }
 
   // Обновляем кнопки
@@ -1292,6 +1296,43 @@ function loadDashboard() {
       </div>
     </div>
   `;
+}
+
+// ABOUT PAGE - Load project documentation
+function loadAboutPage() {
+  const container = document.getElementById('about-content-container');
+  fetch('../docs/СТРУКТУРА-АРТЕЛЬ.md')
+    .then(r => r.text())
+    .then(markdown => {
+      const html = markdownToHtml(markdown);
+      container.innerHTML = html;
+    })
+    .catch(err => {
+      console.error('Load about page error:', err);
+      container.innerHTML = '<p>Error loading documentation</p>';
+    });
+}
+
+function markdownToHtml(markdown) {
+  return markdown
+    .replace(/^# (.*?)$/gm, '<h1>$1</h1>')
+    .replace(/^## (.*?)$/gm, '<h2>$1</h2>')
+    .replace(/^### (.*?)$/gm, '<h3>$1</h3>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+    .replace(/\n\n/g, '<br><br>');
+}
+
+function toggleEditMode() {
+  alert('Функция редактирования будет реализована');
+}
+
+function exportStructure() {
+  alert('Экспорт будет реализован');
+}
+
+function showHistory() {
+  alert('История будет реализована');
 }
 
 document.addEventListener('DOMContentLoaded', init);

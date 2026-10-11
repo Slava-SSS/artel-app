@@ -1730,3 +1730,19 @@ ipcMain.handle('saveDatabase', async () => {
 ipcMain.handle('api:indexAllThumbnails', async () => {
   return await indexAllThumbnails();
 });
+
+// Save СТРУКТУРА-АРТЕЛЬ
+ipcMain.handle('saveStructure', async (_, content) => {
+  try {
+    const structurePath = path.join(__dirname, 'docs', 'СТРУКТУРА-АРТЕЛЬ.md');
+    if (!fs.existsSync(path.join(__dirname, 'docs'))) {
+      fs.mkdirSync(path.join(__dirname, 'docs'), { recursive: true });
+    }
+    fs.writeFileSync(structurePath, content, 'utf-8');
+    log('[STRUCTURE] Saved СТРУКТУРА-АРТЕЛЬ.md');
+    return { success: true };
+  } catch (err) {
+    log(`[STRUCTURE] Error saving: ${err.message}`);
+    return { success: false, error: err.message };
+  }
+});

@@ -25,6 +25,7 @@ contextBridge.exposeInMainWorld('api', {
 
   // Refresh
   refreshProjects: () => ipcRenderer.invoke('api:refreshProjects'),
+  saveStructure: (content) => ipcRenderer.invoke('saveStructure', content),
 
   // Telegram Bot
   telegramNewOrder: (order) => ipcRenderer.invoke('telegram:newOrder', order),
