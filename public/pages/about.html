@@ -10,18 +10,20 @@
   gap: 30px;
   padding: 30px;
   height: 100%;
+  width: 100%;
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
 }
 
 /* БОКОВОЕ МЕНЮ */
 .about-sidebar {
-  position: sticky;
-  top: 30px;
-  height: fit-content;
-  max-height: calc(100vh - 60px);
+  position: relative;
+  height: calc(100vh - 60px);
   overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
 }
 
 .sidebar-header {
@@ -73,8 +75,10 @@
   flex-direction: column;
   gap: 40px;
   overflow-y: auto;
-  max-height: calc(100vh - 60px);
+  overflow-x: hidden;
+  height: calc(100vh - 60px);
   padding-right: 15px;
+  scroll-behavior: smooth;
 }
 
 .about-content::-webkit-scrollbar {
