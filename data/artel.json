@@ -5,7 +5,7 @@
       "name": "VENDING-2",
       "path": "Проекты\\VENDING-2",
       "description": "",
-      "created_at": "2026-10-11T19:18:27.566Z",
+      "created_at": "2026-10-11T20:07:30.619Z",
       "fileCount": 118
     },
     "VENDING-3": {
@@ -13,7 +13,7 @@
       "name": "VENDING-3",
       "path": "Проекты\\VENDING-3",
       "description": "",
-      "created_at": "2026-10-11T19:18:28.551Z",
+      "created_at": "2026-10-11T20:07:31.590Z",
       "fileCount": 201
     }
   },
@@ -6025,7 +6025,7 @@
       "size": 65531,
       "sizeFormatted": "64 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T19:18:27.582Z",
+      "created_at": "2026-10-11T20:07:30.624Z",
       "contentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -6126,12 +6126,108 @@
           "newName": "АКБ клемма -_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.552Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.284Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.201Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:10.786Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.028Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.225Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.479Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.369Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.466Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.042Z",
+          "oldContentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
+          "newContentHash": "73fab826bbcdb167aedf9dce891dac25",
+          "oldSize": 65531,
+          "newSize": 67520
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.696Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.943Z",
+          "oldName": "АКБ клемма -_1.SLDPRT",
+          "newName": "АКБ клемма -_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.582Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.543Z",
+          "oldName": "АКБ клемма -_1.SLDPRT",
+          "newName": "АКБ клемма -_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.624Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.580Z",
+          "oldName": "АКБ клемма -_1.SLDPRT",
+          "newName": "АКБ клемма -_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
           "oldName": "АКБ клемма -_1.SLDPRT",
           "newName": "АКБ клемма -_1.SLDPRT"
         }
@@ -6259,7 +6355,7 @@
       "size": 65690,
       "sizeFormatted": "64.15 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T19:18:27.571Z",
+      "created_at": "2026-10-11T20:07:30.623Z",
       "contentHash": "c81730592a28004c3a8420b4ab1e3a95",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -6360,12 +6456,108 @@
           "newName": "АКБ клемма +_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.552Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.284Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.201Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:10.786Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.027Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.225Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.479Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.368Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.466Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.041Z",
+          "oldContentHash": "c81730592a28004c3a8420b4ab1e3a95",
+          "newContentHash": "4617dbd8df642562a14aeb03194439ee",
+          "oldSize": 65690,
+          "newSize": 67947
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.694Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.943Z",
+          "oldName": "АКБ клемма +_1.SLDPRT",
+          "newName": "АКБ клемма +_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.571Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "АКБ клемма +_1.SLDPRT",
+          "newName": "АКБ клемма +_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.623Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "АКБ клемма +_1.SLDPRT",
+          "newName": "АКБ клемма +_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "АКБ клемма +_1.SLDPRT",
           "newName": "АКБ клемма +_1.SLDPRT"
         }
@@ -6941,7 +7133,7 @@
       "size": 68413,
       "sizeFormatted": "66.81 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T19:18:27.584Z",
+      "created_at": "2026-10-11T20:07:30.625Z",
       "contentHash": "122bba4b678333bffd1e80d3b617d02c",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -7042,12 +7234,108 @@
           "newName": "АКБ наклейка_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.552Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.284Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.203Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:10.788Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.029Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.227Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.481Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.371Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.466Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.044Z",
+          "oldContentHash": "122bba4b678333bffd1e80d3b617d02c",
+          "newContentHash": "5e6a8738d170b01246171ccb577b250d",
+          "oldSize": 68413,
+          "newSize": 69862
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.699Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.944Z",
+          "oldName": "АКБ наклейка_1.SLDPRT",
+          "newName": "АКБ наклейка_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.584Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "АКБ наклейка_1.SLDPRT",
+          "newName": "АКБ наклейка_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.625Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "АКБ наклейка_1.SLDPRT",
+          "newName": "АКБ наклейка_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "АКБ наклейка_1.SLDPRT",
           "newName": "АКБ наклейка_1.SLDPRT"
         }
@@ -9238,7 +9526,7 @@
       "size": 298398,
       "sizeFormatted": "291.4 KB",
       "modified_at": "26.09.2026, 22:54:58",
-      "created_at": "2026-10-11T19:18:27.590Z",
+      "created_at": "2026-10-11T20:07:30.631Z",
       "contentHash": "36502a4bee87a506c02731fccffada23",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -9283,12 +9571,52 @@
           "newName": "Задняя кассета.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.714Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.946Z",
+          "oldName": "Задняя кассета.SLDPRT",
+          "newName": "Задняя кассета.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.590Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Задняя кассета.SLDPRT",
+          "newName": "Задняя кассета.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.631Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "Задняя кассета.SLDPRT",
+          "newName": "Задняя кассета.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Задняя кассета.SLDPRT",
           "newName": "Задняя кассета.SLDPRT"
         }
@@ -9696,7 +10024,7 @@
       "size": 66114,
       "sizeFormatted": "64.56 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T19:18:27.591Z",
+      "created_at": "2026-10-11T20:07:30.633Z",
       "contentHash": "cc9e21a3a14ba10e54fb1789eae47814",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -9797,12 +10125,108 @@
           "newName": "Инв клемма 1_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.545Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.132Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.389Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.584Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.825Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.715Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.391Z",
+          "oldContentHash": "cc9e21a3a14ba10e54fb1789eae47814",
+          "newContentHash": "a87f2b50d7af6836b9b72a06d5c807e9",
+          "oldSize": 66114,
+          "newSize": 68605
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.721Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.947Z",
+          "oldName": "Инв клемма 1_1.SLDPRT",
+          "newName": "Инв клемма 1_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.591Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Инв клемма 1_1.SLDPRT",
+          "newName": "Инв клемма 1_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.633Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "Инв клемма 1_1.SLDPRT",
+          "newName": "Инв клемма 1_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв клемма 1_1.SLDPRT",
           "newName": "Инв клемма 1_1.SLDPRT"
         }
@@ -9930,7 +10354,7 @@
       "size": 66078,
       "sizeFormatted": "64.53 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T19:18:27.592Z",
+      "created_at": "2026-10-11T20:07:30.633Z",
       "contentHash": "e9ecca4d0ccd09177540de4111f81dd2",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -10031,12 +10455,108 @@
           "newName": "Инв клемма 2_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.545Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.133Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.390Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.584Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.826Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.715Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.391Z",
+          "oldContentHash": "e9ecca4d0ccd09177540de4111f81dd2",
+          "newContentHash": "6efddc90b20b9ea99fc789ae88357bac",
+          "oldSize": 66078,
+          "newSize": 68260
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.723Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.947Z",
+          "oldName": "Инв клемма 2_1.SLDPRT",
+          "newName": "Инв клемма 2_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.592Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Инв клемма 2_1.SLDPRT",
+          "newName": "Инв клемма 2_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.633Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "Инв клемма 2_1.SLDPRT",
+          "newName": "Инв клемма 2_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв клемма 2_1.SLDPRT",
           "newName": "Инв клемма 2_1.SLDPRT"
         }
@@ -10164,7 +10684,7 @@
       "size": 66919,
       "sizeFormatted": "65.35 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T19:18:27.593Z",
+      "created_at": "2026-10-11T20:07:30.634Z",
       "contentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -10265,12 +10785,108 @@
           "newName": "Инв клемма 3_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.546Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.134Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.390Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.584Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.826Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.716Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.392Z",
+          "oldContentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
+          "newContentHash": "9f13e8e0474f07db70c0e05040854b9c",
+          "oldSize": 66919,
+          "newSize": 68257
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.724Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.948Z",
+          "oldName": "Инв клемма 3_1.SLDPRT",
+          "newName": "Инв клемма 3_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.593Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв клемма 3_1.SLDPRT",
+          "newName": "Инв клемма 3_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.634Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "Инв клемма 3_1.SLDPRT",
+          "newName": "Инв клемма 3_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв клемма 3_1.SLDPRT",
           "newName": "Инв клемма 3_1.SLDPRT"
         }
@@ -10398,7 +11014,7 @@
       "size": 65967,
       "sizeFormatted": "64.42 KB",
       "modified_at": "24.09.2026, 21:21:54",
-      "created_at": "2026-10-11T19:18:27.593Z",
+      "created_at": "2026-10-11T20:07:30.634Z",
       "contentHash": "8c8d41c8266a42e93598a1fe5072a670",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -10499,12 +11115,108 @@
           "newName": "Инв клемма 4_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.546Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.134Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.390Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.585Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.827Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.716Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.392Z",
+          "oldContentHash": "8c8d41c8266a42e93598a1fe5072a670",
+          "newContentHash": "adb5d659fd7613ae53918fac570dfad6",
+          "oldSize": 65967,
+          "newSize": 67819
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.725Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.948Z",
+          "oldName": "Инв клемма 4_1.SLDPRT",
+          "newName": "Инв клемма 4_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.593Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв клемма 4_1.SLDPRT",
+          "newName": "Инв клемма 4_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.634Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.581Z",
+          "oldName": "Инв клемма 4_1.SLDPRT",
+          "newName": "Инв клемма 4_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв клемма 4_1.SLDPRT",
           "newName": "Инв клемма 4_1.SLDPRT"
         }
@@ -10632,7 +11344,7 @@
       "size": 68617,
       "sizeFormatted": "67.01 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T19:18:27.594Z",
+      "created_at": "2026-10-11T20:07:30.635Z",
       "contentHash": "e762fb5ccac85a41b63165c090fa9ea0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -10733,12 +11445,108 @@
           "newName": "Инв кнопка 1_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.547Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.137Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.391Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.585Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.827Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.717Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.393Z",
+          "oldContentHash": "e762fb5ccac85a41b63165c090fa9ea0",
+          "newContentHash": "9ed2da1a7b0300d0d20b74f0d10c8474",
+          "oldSize": 68617,
+          "newSize": 70489
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.726Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.948Z",
+          "oldName": "Инв кнопка 1_1.SLDPRT",
+          "newName": "Инв кнопка 1_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.594Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 1_1.SLDPRT",
+          "newName": "Инв кнопка 1_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.635Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Инв кнопка 1_1.SLDPRT",
+          "newName": "Инв кнопка 1_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв кнопка 1_1.SLDPRT",
           "newName": "Инв кнопка 1_1.SLDPRT"
         }
@@ -10866,7 +11674,7 @@
       "size": 68093,
       "sizeFormatted": "66.5 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T19:18:27.594Z",
+      "created_at": "2026-10-11T20:07:30.635Z",
       "contentHash": "f385d412413fed35682d04897ae1b3f0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -10967,12 +11775,108 @@
           "newName": "Инв кнопка 2_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.553Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.547Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.137Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.391Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.585Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.828Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.718Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.393Z",
+          "oldContentHash": "f385d412413fed35682d04897ae1b3f0",
+          "newContentHash": "93aec8fdb6369137e57b7bcd2b58aae9",
+          "oldSize": 68093,
+          "newSize": 69566
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.727Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.948Z",
+          "oldName": "Инв кнопка 2_1.SLDPRT",
+          "newName": "Инв кнопка 2_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.594Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 2_1.SLDPRT",
+          "newName": "Инв кнопка 2_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.635Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Инв кнопка 2_1.SLDPRT",
+          "newName": "Инв кнопка 2_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв кнопка 2_1.SLDPRT",
           "newName": "Инв кнопка 2_1.SLDPRT"
         }
@@ -11100,7 +12004,7 @@
       "size": 68138,
       "sizeFormatted": "66.54 KB",
       "modified_at": "24.09.2026, 21:21:51",
-      "created_at": "2026-10-11T19:18:27.595Z",
+      "created_at": "2026-10-11T20:07:30.636Z",
       "contentHash": "4303eeed72844a8c316c71eae1f3c3d2",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -11201,12 +12105,108 @@
           "newName": "Инв кнопка 3_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.554Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.548Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.138Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.391Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.586Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.828Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.718Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.394Z",
+          "oldContentHash": "4303eeed72844a8c316c71eae1f3c3d2",
+          "newContentHash": "dfeffde2cb29d7373043dcf0f569a5a8",
+          "oldSize": 68138,
+          "newSize": 69840
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.730Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.949Z",
+          "oldName": "Инв кнопка 3_1.SLDPRT",
+          "newName": "Инв кнопка 3_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.595Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 3_1.SLDPRT",
+          "newName": "Инв кнопка 3_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.636Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Инв кнопка 3_1.SLDPRT",
+          "newName": "Инв кнопка 3_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.583Z",
           "oldName": "Инв кнопка 3_1.SLDPRT",
           "newName": "Инв кнопка 3_1.SLDPRT"
         }
@@ -11334,7 +12334,7 @@
       "size": 68086,
       "sizeFormatted": "66.49 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T19:18:27.595Z",
+      "created_at": "2026-10-11T20:07:30.636Z",
       "contentHash": "37d0fb5a44174dcef04ad83c9d649fca",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -11435,12 +12435,108 @@
           "newName": "Инв кнопка 4_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.554Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.285Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.548Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.138Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.392Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.586Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.829Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.719Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.395Z",
+          "oldContentHash": "37d0fb5a44174dcef04ad83c9d649fca",
+          "newContentHash": "9a74a2bcfe36fd08871b132974c24697",
+          "oldSize": 68086,
+          "newSize": 69908
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.732Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.949Z",
+          "oldName": "Инв кнопка 4_1.SLDPRT",
+          "newName": "Инв кнопка 4_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.595Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 4_1.SLDPRT",
+          "newName": "Инв кнопка 4_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.636Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Инв кнопка 4_1.SLDPRT",
+          "newName": "Инв кнопка 4_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.584Z",
           "oldName": "Инв кнопка 4_1.SLDPRT",
           "newName": "Инв кнопка 4_1.SLDPRT"
         }
@@ -13640,7 +14736,7 @@
       "size": 249641,
       "sizeFormatted": "243.79 KB",
       "modified_at": "26.09.2026, 22:54:58",
-      "created_at": "2026-10-11T19:18:27.601Z",
+      "created_at": "2026-10-11T20:07:30.641Z",
       "contentHash": "79d382a49215f5b3603dd91d2de651ce",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -13685,12 +14781,52 @@
           "newName": "Кассета Карниз.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.554Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.286Z"
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.747Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.956Z",
+          "oldName": "Кассета Карниз.SLDPRT",
+          "newName": "Кассета Карниз.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.601Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Кассета Карниз.SLDPRT",
+          "newName": "Кассета Карниз.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.641Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Кассета Карниз.SLDPRT",
+          "newName": "Кассета Карниз.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.584Z",
           "oldName": "Кассета Карниз.SLDPRT",
           "newName": "Кассета Карниз.SLDPRT"
         }
@@ -13762,7 +14898,7 @@
       "size": 82755,
       "sizeFormatted": "80.82 KB",
       "modified_at": "25.09.2026, 15:55:58",
-      "created_at": "2026-10-11T19:18:27.602Z",
+      "created_at": "2026-10-11T20:07:30.643Z",
       "contentHash": "737fb0fc2aac3378be2ea4f42e31b535",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -13807,12 +14943,52 @@
           "newName": "Кассета правая.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.554Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.286Z"
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.467Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:31.750Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.957Z",
+          "oldName": "Кассета правая.SLDPRT",
+          "newName": "Кассета правая.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:27.602Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Кассета правая.SLDPRT",
+          "newName": "Кассета правая.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:30.643Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Кассета правая.SLDPRT",
+          "newName": "Кассета правая.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.584Z",
           "oldName": "Кассета правая.SLDPRT",
           "newName": "Кассета правая.SLDPRT"
         }
@@ -16034,7 +17210,7 @@
       "size": 70444,
       "sizeFormatted": "68.79 KB",
       "modified_at": "27.09.2026, 16:45:31",
-      "created_at": "2026-10-11T19:18:28.364Z",
+      "created_at": "2026-10-11T20:07:31.404Z",
       "contentHash": "cd76e01bc63d1443948e560c76ce8bef",
       "isDirectory": false,
       "parent": "Финал",
@@ -16135,12 +17311,108 @@
           "newName": "Органайзер задняя_1.SLDPRT"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.554Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.287Z"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:05:47.572Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:06:11.159Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:19:21.411Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:28:36.606Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-09T22:31:07.852Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-10T22:57:44.742Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.468Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "modified",
+          "timestamp": "2026-10-11T00:00:42.414Z",
+          "oldContentHash": "c95dd8743fc9adbe99fd3d673134be7f",
+          "newContentHash": "cd76e01bc63d1443948e560c76ce8bef",
+          "oldSize": 68696,
+          "newSize": 70444
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:33.525Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.959Z",
+          "oldName": "Органайзер задняя_1.SLDPRT",
+          "newName": "Органайзер задняя_1.SLDPRT"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:28.364Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Органайзер задняя_1.SLDPRT",
+          "newName": "Органайзер задняя_1.SLDPRT"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:31.404Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Органайзер задняя_1.SLDPRT",
+          "newName": "Органайзер задняя_1.SLDPRT"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.584Z",
           "oldName": "Органайзер задняя_1.SLDPRT",
           "newName": "Органайзер задняя_1.SLDPRT"
         }
@@ -21922,7 +23194,7 @@
       "size": 342445,
       "sizeFormatted": "334.42 KB",
       "modified_at": "07.10.2026, 17:17:07",
-      "created_at": "2026-10-11T19:18:28.139Z",
+      "created_at": "2026-10-11T20:07:31.177Z",
       "contentHash": "3598f6142f438c82a94ceb2f19de5ddd",
       "isDirectory": false,
       "parent": "Финал",
@@ -21967,12 +23239,52 @@
           "newName": "Vendiong - 3 общий вид.pdf"
         },
         {
+          "action": "deleted",
+          "timestamp": "2026-10-11T19:18:28.561Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "migrated",
+          "timestamp": "2026-10-09T22:02:03.290Z"
+        },
+        {
+          "action": "deleted",
+          "timestamp": "2026-10-10T23:55:20.472Z",
+          "reason": "not_found_on_disk"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T17:16:33.000Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T17:16:33.965Z",
+          "oldName": "Vendiong - 3 общий вид.pdf",
+          "newName": "Vendiong - 3 общий вид.pdf"
+        },
+        {
           "action": "created",
           "timestamp": "2026-10-11T19:18:28.139Z"
         },
         {
           "action": "renamed_detected",
           "timestamp": "2026-10-11T19:18:28.546Z",
+          "oldName": "Vendiong - 3 общий вид.pdf",
+          "newName": "Vendiong - 3 общий вид.pdf"
+        },
+        {
+          "action": "created",
+          "timestamp": "2026-10-11T20:07:31.177Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.582Z",
+          "oldName": "Vendiong - 3 общий вид.pdf",
+          "newName": "Vendiong - 3 общий вид.pdf"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T20:07:31.584Z",
           "oldName": "Vendiong - 3 общий вид.pdf",
           "newName": "Vendiong - 3 общий вид.pdf"
         }
@@ -22044,7 +23356,7 @@
       "size": 65531,
       "sizeFormatted": "64 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T17:16:31.696Z",
+      "created_at": "2026-10-11T19:18:27.582Z",
       "contentHash": "2d1fed4105c7f3e064bd4d8177bdfe0f",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22145,8 +23457,18 @@
           "newName": "АКБ клемма -_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.582Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.543Z",
+          "oldName": "АКБ клемма -_1.SLDPRT",
+          "newName": "АКБ клемма -_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.552Z",
+          "timestamp": "2026-10-11T20:07:31.591Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22161,7 +23483,7 @@
       "size": 65690,
       "sizeFormatted": "64.15 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T17:16:31.694Z",
+      "created_at": "2026-10-11T19:18:27.571Z",
       "contentHash": "c81730592a28004c3a8420b4ab1e3a95",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22262,8 +23584,18 @@
           "newName": "АКБ клемма +_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.571Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "АКБ клемма +_1.SLDPRT",
+          "newName": "АКБ клемма +_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.552Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22278,7 +23610,7 @@
       "size": 68413,
       "sizeFormatted": "66.81 KB",
       "modified_at": "24.09.2026, 21:21:49",
-      "created_at": "2026-10-11T17:16:31.699Z",
+      "created_at": "2026-10-11T19:18:27.584Z",
       "contentHash": "122bba4b678333bffd1e80d3b617d02c",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22379,8 +23711,18 @@
           "newName": "АКБ наклейка_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.584Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "АКБ наклейка_1.SLDPRT",
+          "newName": "АКБ наклейка_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.552Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22395,7 +23737,7 @@
       "size": 298398,
       "sizeFormatted": "291.4 KB",
       "modified_at": "26.09.2026, 22:54:58",
-      "created_at": "2026-10-11T17:16:31.714Z",
+      "created_at": "2026-10-11T19:18:27.590Z",
       "contentHash": "36502a4bee87a506c02731fccffada23",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22440,8 +23782,18 @@
           "newName": "Задняя кассета.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.590Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Задняя кассета.SLDPRT",
+          "newName": "Задняя кассета.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22456,7 +23808,7 @@
       "size": 66114,
       "sizeFormatted": "64.56 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T17:16:31.721Z",
+      "created_at": "2026-10-11T19:18:27.591Z",
       "contentHash": "cc9e21a3a14ba10e54fb1789eae47814",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22557,8 +23909,18 @@
           "newName": "Инв клемма 1_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.591Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Инв клемма 1_1.SLDPRT",
+          "newName": "Инв клемма 1_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22573,7 +23935,7 @@
       "size": 66078,
       "sizeFormatted": "64.53 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T17:16:31.723Z",
+      "created_at": "2026-10-11T19:18:27.592Z",
       "contentHash": "e9ecca4d0ccd09177540de4111f81dd2",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22674,8 +24036,18 @@
           "newName": "Инв клемма 2_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.592Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.544Z",
+          "oldName": "Инв клемма 2_1.SLDPRT",
+          "newName": "Инв клемма 2_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22690,7 +24062,7 @@
       "size": 66919,
       "sizeFormatted": "65.35 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T17:16:31.724Z",
+      "created_at": "2026-10-11T19:18:27.593Z",
       "contentHash": "6f7ab9fb5454e2b09c059302ccd40ae0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22791,8 +24163,18 @@
           "newName": "Инв клемма 3_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.593Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв клемма 3_1.SLDPRT",
+          "newName": "Инв клемма 3_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.592Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22807,7 +24189,7 @@
       "size": 65967,
       "sizeFormatted": "64.42 KB",
       "modified_at": "24.09.2026, 21:21:54",
-      "created_at": "2026-10-11T17:16:31.725Z",
+      "created_at": "2026-10-11T19:18:27.593Z",
       "contentHash": "8c8d41c8266a42e93598a1fe5072a670",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -22908,8 +24290,18 @@
           "newName": "Инв клемма 4_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.593Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв клемма 4_1.SLDPRT",
+          "newName": "Инв клемма 4_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -22924,7 +24316,7 @@
       "size": 68617,
       "sizeFormatted": "67.01 KB",
       "modified_at": "24.09.2026, 21:21:53",
-      "created_at": "2026-10-11T17:16:31.726Z",
+      "created_at": "2026-10-11T19:18:27.594Z",
       "contentHash": "e762fb5ccac85a41b63165c090fa9ea0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23025,8 +24417,18 @@
           "newName": "Инв кнопка 1_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.594Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 1_1.SLDPRT",
+          "newName": "Инв кнопка 1_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23041,7 +24443,7 @@
       "size": 68093,
       "sizeFormatted": "66.5 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T17:16:31.727Z",
+      "created_at": "2026-10-11T19:18:27.594Z",
       "contentHash": "f385d412413fed35682d04897ae1b3f0",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23142,8 +24544,18 @@
           "newName": "Инв кнопка 2_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.594Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 2_1.SLDPRT",
+          "newName": "Инв кнопка 2_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.553Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23158,7 +24570,7 @@
       "size": 68138,
       "sizeFormatted": "66.54 KB",
       "modified_at": "24.09.2026, 21:21:51",
-      "created_at": "2026-10-11T17:16:31.730Z",
+      "created_at": "2026-10-11T19:18:27.595Z",
       "contentHash": "4303eeed72844a8c316c71eae1f3c3d2",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23259,8 +24671,18 @@
           "newName": "Инв кнопка 3_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.595Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 3_1.SLDPRT",
+          "newName": "Инв кнопка 3_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.554Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23275,7 +24697,7 @@
       "size": 68086,
       "sizeFormatted": "66.49 KB",
       "modified_at": "24.09.2026, 21:21:52",
-      "created_at": "2026-10-11T17:16:31.732Z",
+      "created_at": "2026-10-11T19:18:27.595Z",
       "contentHash": "37d0fb5a44174dcef04ad83c9d649fca",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23376,8 +24798,18 @@
           "newName": "Инв кнопка 4_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.595Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Инв кнопка 4_1.SLDPRT",
+          "newName": "Инв кнопка 4_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.554Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23392,7 +24824,7 @@
       "size": 249641,
       "sizeFormatted": "243.79 KB",
       "modified_at": "26.09.2026, 22:54:58",
-      "created_at": "2026-10-11T17:16:31.747Z",
+      "created_at": "2026-10-11T19:18:27.601Z",
       "contentHash": "79d382a49215f5b3603dd91d2de651ce",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23437,8 +24869,18 @@
           "newName": "Кассета Карниз.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.601Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Кассета Карниз.SLDPRT",
+          "newName": "Кассета Карниз.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.554Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23453,7 +24895,7 @@
       "size": 82755,
       "sizeFormatted": "80.82 KB",
       "modified_at": "25.09.2026, 15:55:58",
-      "created_at": "2026-10-11T17:16:31.750Z",
+      "created_at": "2026-10-11T19:18:27.602Z",
       "contentHash": "737fb0fc2aac3378be2ea4f42e31b535",
       "isDirectory": false,
       "parent": "Solidworks",
@@ -23498,8 +24940,18 @@
           "newName": "Кассета правая.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:27.602Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Кассета правая.SLDPRT",
+          "newName": "Кассета правая.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.554Z",
+          "timestamp": "2026-10-11T20:07:31.593Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23514,7 +24966,7 @@
       "size": 70444,
       "sizeFormatted": "68.79 KB",
       "modified_at": "27.09.2026, 16:45:31",
-      "created_at": "2026-10-11T17:16:33.525Z",
+      "created_at": "2026-10-11T19:18:28.364Z",
       "contentHash": "cd76e01bc63d1443948e560c76ce8bef",
       "isDirectory": false,
       "parent": "Финал",
@@ -23615,8 +25067,18 @@
           "newName": "Органайзер задняя_1.SLDPRT"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:28.364Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.545Z",
+          "oldName": "Органайзер задняя_1.SLDPRT",
+          "newName": "Органайзер задняя_1.SLDPRT"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.554Z",
+          "timestamp": "2026-10-11T20:07:31.594Z",
           "reason": "not_found_on_disk"
         }
       ]
@@ -23631,7 +25093,7 @@
       "size": 342445,
       "sizeFormatted": "334.42 KB",
       "modified_at": "07.10.2026, 17:17:07",
-      "created_at": "2026-10-11T17:16:33.000Z",
+      "created_at": "2026-10-11T19:18:28.139Z",
       "contentHash": "3598f6142f438c82a94ceb2f19de5ddd",
       "isDirectory": false,
       "parent": "Финал",
@@ -23676,8 +25138,18 @@
           "newName": "Vendiong - 3 общий вид.pdf"
         },
         {
+          "action": "created",
+          "timestamp": "2026-10-11T19:18:28.139Z"
+        },
+        {
+          "action": "renamed_detected",
+          "timestamp": "2026-10-11T19:18:28.546Z",
+          "oldName": "Vendiong - 3 общий вид.pdf",
+          "newName": "Vendiong - 3 общий вид.pdf"
+        },
+        {
           "action": "deleted",
-          "timestamp": "2026-10-11T19:18:28.561Z",
+          "timestamp": "2026-10-11T20:07:31.595Z",
           "reason": "not_found_on_disk"
         }
       ]

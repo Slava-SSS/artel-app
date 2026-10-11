@@ -182,6 +182,7 @@ async function init() {
     if (appState.projects.length > 0) {
       selectProject(appState.projects[0].name);
     }
+    switchTab('dashboard');
   } catch (err) {
     console.error('Init error:', err);
   }
