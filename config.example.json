@@ -1,0 +1,7 @@
+{
+  "artellPath": "CHANGE_THIS_TO_YOUR_ARTEL_FOLDER_PATH",
+  "dataPath": "./data",
+  "databaseFile": "artel.json",
+  "port": 3001,
+  "telegramBotToken": "CHANGE_THIS_TO_YOUR_TELEGRAM_BOT_TOKEN"
+}

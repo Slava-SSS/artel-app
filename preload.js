@@ -1,6 +1,9 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('api', {
+  // Config
+  getConfig: () => ipcRenderer.invoke('api:getConfig'),
+
   // Database
   getData: () => ipcRenderer.invoke('api:getData'),
   getProjectFiles: (projectName) => ipcRenderer.invoke('api:getProjectFiles', projectName),

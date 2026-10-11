@@ -46,7 +46,25 @@ const telegramBot = require('./telegram-bot');
 const APP_PATH = __dirname;
 const DATA_PATH = path.join(APP_PATH, 'data');
 const DB_FILE = path.join(DATA_PATH, 'artel.json');
-const PROJECTS_PATH = path.join(APP_PATH, '..', 'Проекты');
+
+// Загрузить config.local.json если существует
+let CONFIG = {};
+const CONFIG_FILE = path.join(APP_PATH, 'config.local.json');
+if (fs.existsSync(CONFIG_FILE)) {
+  try {
+    CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    log('[CONFIG] Loaded config.local.json');
+  } catch (e) {
+    log('[CONFIG] Error loading config.local.json: ' + e.message);
+  }
+}
+
+// ARTELL_PATH - корневая папка "Артель" (может быть на любом диске)
+const ARTEL_PATH = CONFIG.artellPath || path.join(APP_PATH, '..', 'Артель');
+const PROJECTS_PATH = path.join(ARTEL_PATH, 'Проекты');
+
+log('[CONFIG] ARTEL_PATH: ' + ARTEL_PATH);
+log('[CONFIG] PROJECTS_PATH: ' + PROJECTS_PATH);
 const CACHE_PATH = path.join(APP_PATH, 'cache');
 
 let mainWindow = null;
@@ -485,6 +503,13 @@ function formatSize(bytes) {
 // ============================================
 // IPC HANDLERS
 // ============================================
+
+ipcMain.handle('api:getConfig', async () => {
+  return {
+    artellPath: ARTEL_PATH,
+    projectsPath: PROJECTS_PATH,
+  };
+});
 
 ipcMain.handle('api:getData', async () => {
   try {
