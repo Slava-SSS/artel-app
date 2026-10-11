@@ -1280,12 +1280,12 @@ function loadDashboard() {
         <div style="text-align: center; padding: 40px;">
           <h2>📂 Проекты</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
-            ${appState.projects.map(p => `
-              <div style="padding: 20px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s;" onclick="selectProject('${p.id}')">
+            ${appState.projects && appState.projects.length > 0 ? appState.projects.map(p => `
+              <div style="padding: 20px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s;" onclick="selectProject('${p.name}')">
                 <strong>${p.name}</strong>
-                <br><small style="color: var(--text-secondary);">${appState.files.filter(f => f.projectId === p.id).length} файлов</small>
+                <br><small style="color: var(--text-secondary);">${(p.fileCount || 0)} файлов</small>
               </div>
-            `).join('')}
+            `).join('') : '<p>Нет проектов</p>'}
           </div>
         </div>
       </div>
